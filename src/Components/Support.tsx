@@ -7,13 +7,14 @@ import {
   Text,
   Stack,
   Circle,
+  Grid,
 } from '@chakra-ui/react';
 import React from 'react';
 import { AddIcon, MinusIcon } from '@chakra-ui/icons';
 
 const Support = () => {
   return (
-    <Box my="2rem" w="90%" mx="auto">
+    <Box my="2rem" w="95%" mx="auto">
       <Flex justify="space-between" gap={{ base: '.5rem', md: '2rem' }}>
         <Box w="50%" data-aos="fade-left" data-aos-delay="400">
           <VStack align="start">
@@ -56,7 +57,12 @@ const Support = () => {
                 right fit for your needs.
               </Text>
             </Stack>
-            <HStack justify="space-between" w="99%">
+            <HStack
+              justify="space-between"
+              w="99%"
+              borderBottom="1px solid black"
+              py="5px"
+            >
               <Text px="10px" fontWeight="600">
                 Can I use ClearLink on multiple devices?
               </Text>
@@ -64,7 +70,12 @@ const Support = () => {
                 <AddIcon />
               </Circle>{' '}
             </HStack>{' '}
-            <HStack justify="space-between" w="99%">
+            <HStack
+              justify="space-between"
+              w="99%"
+              borderBottom="1px solid black"
+              py="5px"
+            >
               <Text px="10px" fontWeight="600">
                 Is ClearLink compatible with other video conferencing platforms?
               </Text>
@@ -72,7 +83,12 @@ const Support = () => {
                 <AddIcon />
               </Circle>{' '}
             </HStack>
-            <HStack justify="space-between" w="99%">
+            <HStack
+              justify="space-between"
+              w="99%"
+              borderBottom="1px solid black"
+              py="5px"
+            >
               <Text px="10px" fontWeight="600">
                 How does ClearLink ensure the security of my video conferences?
               </Text>
@@ -80,7 +96,12 @@ const Support = () => {
                 <AddIcon />
               </Circle>{' '}
             </HStack>
-            <HStack justify="space-between" w="99%">
+            <HStack
+              justify="space-between"
+              w="99%"
+              borderBottom="1px solid black"
+              py="5px"
+            >
               <Text px="10px" fontWeight="600">
                 Do I need to download any software to use ClearLink?
               </Text>

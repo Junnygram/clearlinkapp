@@ -4,13 +4,24 @@ import React from 'react';
 const Banner = () => {
   return (
     <Box p="1rem" w="90%" mx="auto">
-      <Box h={{ base: 'auto', md: '2rem' }} my="auto">
+      <VStack
+        h={{ base: 'auto', md: '2rem' }}
+        my="auto"
+        gap={{ base: '1rem', md: '1.5rem' }}
+      >
         <Box h="60%" my="auto">
-          <Text textColor="gray.600" textAlign="center" fontSize="14px">
+          <Text
+            textColor="gray.600"
+            textAlign="center"
+            fontSize={{ base: '8px', md: '14px' }}
+          >
             Join 1,500+ companies already video conferencing the ClearLink way{' '}
           </Text>
         </Box>
-        <HStack mx={{ base: '1rem', md: '2rem' }} gap="2rem">
+        <HStack
+          mx={{ base: '1rem', md: '2rem' }}
+          gap={{ base: '1rem', md: '2rem' }}
+        >
           <Box>
             <Image alt="any" src="/assets/Shopify.comsvg.png" />
           </Box>
@@ -30,7 +41,7 @@ const Banner = () => {
             <Image alt="any" src="/assets/Group.png" />
           </Box>
         </HStack>
-      </Box>
+      </VStack>
     </Box>
   );
 };

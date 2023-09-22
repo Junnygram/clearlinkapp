@@ -6,42 +6,44 @@ const HeroSection = () => {
   return (
     <Box
       h="full"
-      my="2rem"
-      w="90%"
+      mt="2rem"
+      mb="1rem"
+      w={{ base: '93%', md: '95%' }}
       mx="auto"
-      // data-aos="fade-left"
-      // data-aos-delay="400"
+      px={{ base: '', lg: '10px' }}
     >
-      <Flex justify="space-between">
-        <Box>
-          <Stack gap="20px" py="1.5rem">
+      <Flex>
+        <Box w="50%">
+          {' '}
+          <Stack gap={{ base: '10px', md: '20px', lg: '30px' }}>
             <Text
-              fontSize={{ base: '24px', md: '48px', lg: '60px' }}
+              fontSize={{ base: '14px', md: '28px', lg: '48px' }}
               fontWeight="600"
               textColor="gray.800"
-              lineHeight={{ base: '2rem', md: '3rem', lg: '4rem' }}
+              lineHeight={{ base: '1.2rem', md: '2.2rem', lg: '4rem' }}
               letterSpacing={{ base: '1px', md: '3px' }}
             >
               Uniting the world,
               <br /> one video call at a time
             </Text>
+
             <Text
-              fontSize={{ base: '16px', md: '24px' }}
+              fontSize={{ base: '9px', md: '12px', lg: '24px' }}
               fontWeight="400"
               textColor="gray.500"
               //   lineHeight="2rem"
             >
-              Experinece the future of communication with ClearLink <br />
-              Where crystal-clear video conferencing meets
-              <br /> unparalleled simplicity
+              Experinece the future of communication with ClearLink Where
+              crystal-clear video conferencing meets unparalleled simplicity
             </Text>
+
             <Flex gap="10px">
               <Box
                 borderRadius="20px"
                 p={{ base: '6px', md: '10px' }}
                 bgColor="#175CD3"
                 textColor="white"
-                fontSize={{ base: '10px', md: '18px' }}
+                fontSize={{ base: '6px', md: '14px', lg: '18px' }}
                 _hover={{ bgColor: ['blue.800'], textColor: ['gray.400'] }}
               >
                 <Link href="/register">
@@ -54,7 +56,7 @@ const HeroSection = () => {
                   h="full"
                   my="auto"
                   rounded="10px"
-                  fontSize={{ base: '10px', md: '18px' }}
+                  fontSize={{ base: '6px', md: '14px', lg: '18px' }}
                   _hover={{ bgColor: ['blue.100'], textColor: ['white'] }}
                   cursor="pointer"
                 >
@@ -70,14 +72,17 @@ const HeroSection = () => {
               <Image src="/assets/Userreviews.png" alt="any" />
             </Box>
           </Stack>
-        </Box>{' '}
-        <Box w="48%">
-          <Image
-            src="/assets/heroImage.png"
-            alt="heroImage"
-            boxSize="100%"
-            objectFit="cover"
-          />
+        </Box>
+        <Box w="50%">
+          {' '}
+          <Box w="full">
+            <Image
+              src="/assets/heroImage.png"
+              alt="heroImage"
+              boxSize="100%"
+              objectFit="cover"
+            />
+          </Box>
         </Box>
       </Flex>
     </Box>

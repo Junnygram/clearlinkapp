@@ -16,8 +16,16 @@ type Side = {
 
 const Header = ({ showSide, setShowSide }: Side) => {
   return (
-    <Box mt="1rem" w="95%" mx="auto">
-      <Box borderRadius="20px" bg="gray.300" p={{ base: '.5rem', md: '1rem' }}>
+    <Box
+      mt={{ base: '', lg: '1rem' }}
+      w={{ base: '100%', lg: '95%' }}
+      mx="auto"
+    >
+      <Box
+        borderRadius={{ base: '', lg: '40px' }}
+        bg="gray.300"
+        p={{ base: '.5rem', md: '1rem' }}
+      >
         <Flex justify="space-between" align="center">
           <Box>
             <Image src="/assets/logo.png" alt="logo" />

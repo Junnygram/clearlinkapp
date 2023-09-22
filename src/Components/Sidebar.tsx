@@ -38,14 +38,14 @@ function Sidebar({ setShowSide, showSide }: Side) {
         }}
         right={showSide ? '0%' : '-20%'}
         pos="fixed"
-        px={{ base: showSide ? '.5rem' : '0', md: 'none' }}
-        pt="1rem"
+        px={{ base: showSide ? '.2rem' : '0', md: 'none' }}
+        pt=".5rem"
         zIndex="1"
         align="flex-start"
         boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
         transition="all .2s ease-in"
       >
-        <Box display={{ base: 'relative', md: 'none' }} my="10px">
+        <Box display={{ base: 'relative', md: 'none' }} w="full" bg="gray.300">
           <IconButton
             size={'md'}
             icon={showSide ? <CloseIcon /> : <HamburgerIcon />}
