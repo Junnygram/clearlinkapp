@@ -29,8 +29,8 @@ export default function RootLayout({
       <body>
         <Providers>
           <Box>
-            <Header showSide={showSide} setShowSide={setShowSide} />
             <Sidebar showSide={showSide} setShowSide={setShowSide} />
+            <Header showSide={showSide} setShowSide={setShowSide} />
             <Box>{children}</Box>
           </Box>
           <Footer />
