@@ -16,7 +16,7 @@ type Side = {
 
 const Header = ({ showSide, setShowSide }: Side) => {
   return (
-    <Box mt={{ lg: '.8rem' }} w={{ base: '100%', lg: '95%' }} mx="auto">
+    <Box mt={{ base: '.8rem' }} w={{ base: '100%', lg: '95%' }} mx="auto">
       <Box
         borderRadius={{ base: '', lg: '40px' }}
         bg="gray.300"

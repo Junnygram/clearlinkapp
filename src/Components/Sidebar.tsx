@@ -45,7 +45,12 @@ function Sidebar({ setShowSide, showSide }: Side) {
         boxShadow="0 20px 27px 0 rgb(0 0 0 / 5%)"
         transition="all .2s ease-in"
       >
-        <Box display={{ base: 'relative', md: 'none' }} w="full" bg="gray.300">
+        <Box
+          display={{ base: 'relative', md: 'none' }}
+          w="full"
+          bg="gray.300"
+          mt={{ base: '1rem' }}
+        >
           <IconButton
             size={'md'}
             icon={showSide ? <CloseIcon /> : <HamburgerIcon />}
