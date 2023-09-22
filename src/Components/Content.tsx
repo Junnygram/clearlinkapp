@@ -30,7 +30,7 @@ const Content = () => {
                 <Box>
                   <Image
                     alt="any"
-                    src="assets/shopify.comsvg.png"
+                    src="assets/Shopify.comsvg.png"
                     objectFit="contain"
                     boxSize="40px"
                   />{' '}
@@ -58,7 +58,7 @@ const Content = () => {
                 <Flex align="flex-start" gap="10px">
                   <Box my="auto">
                     {' '}
-                    <Avatar src="/assets/avatar.png" />{' '}
+                    <Avatar src="/assets/Avatar.png" />{' '}
                   </Box>
                   <Box>
                     <VStack fontSize="10px" align="start" minW="6rem">

@@ -12,10 +12,10 @@ const Banner = () => {
         </Box>
         <HStack mx={{ base: '1rem', md: '2rem' }} gap="2rem">
           <Box>
-            <Image alt="any" src="/assets/shopify.comsvg.png" />
+            <Image alt="any" src="/assets/Shopify.comsvg.png" />
           </Box>
           <Box>
-            <Image alt="any" src="/assets/coinbasesvg.png" />
+            <Image alt="any" src="/assets/Coinbasesvg.png" />
           </Box>
           <Box>
             <Image alt="any" src="/assets/Dropboxsvg.png" />
