@@ -14,7 +14,7 @@ const ImpressionBanner = () => {
   return (
     <Box my="2rem" w="95%" mx="auto">
       <Stack textAlign="start" pt={{ base: '1rem', md: '2rem' }}>
-        <Flex>
+        <Flex pos="relative">
           {' '}
           <Box w="65%">
             <Stack>
@@ -37,18 +37,21 @@ const ImpressionBanner = () => {
               </Text>
             </Stack>{' '}
           </Box>
-          <Box w="35%">
+          <Box
+            w=""
+            position="absolute"
+            right={{ base: '3.8rem', md: '8rem', lg: '15rem' }}
+            top={{ base: '2rem', md: '2.5rem', lg: '4rem' }}
+          >
             {' '}
-            <Box left="50%">
+            <Box>
               {' '}
-              <Box>
-                {' '}
-                <Image
-                  src="/assets/Handarrow.png"
-                  alt="any"
-                  boxSize={{ base: '40px', md: '80px' }}
-                />{' '}
-              </Box>
+              <Image
+                src="/assets/Handarrow.png"
+                alt="any"
+                boxSize={{ base: '50px', md: '90px', lg: '140px' }}
+                style={{ transform: 'rotate(35deg)' }}
+              />{' '}
             </Box>
           </Box>
         </Flex>

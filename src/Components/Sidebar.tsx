@@ -32,7 +32,7 @@ function Sidebar({ setShowSide, showSide }: Side) {
       <VStack
         bgColor="#FFFFFF"
         bottom="2px"
-        h="100vh"
+        h="100%"
         w={{
           base: showSide ? '40%' : '0',
         }}
