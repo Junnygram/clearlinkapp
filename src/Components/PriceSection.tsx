@@ -20,6 +20,7 @@ const PriceSection = () => {
           data-aos-delay="400"
         >
           <Text
+            pt="1rem"
             fontWeight="600"
             fontSize={{ base: '14px', md: '40px', lg: '48px' }}
             lineHeight={{ base: '15px', md: '36px', lg: '58px' }}
@@ -77,7 +78,7 @@ const PriceSection = () => {
             </Box>
 
             <Flex
-              justify={{ base: '', md: 'space-between' }}
+              justify={{ base: '', md: '' }}
               gap="10px"
               w={{ base: 'full', md: '60%', lg: '50%' }}
               fontSize={{ base: '8px', md: '16px' }}
