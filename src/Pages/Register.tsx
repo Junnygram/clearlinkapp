@@ -110,11 +110,13 @@ const Register = () => {
         pos="absolute"
         w="2rem"
         h="2rem"
+        mb="2rem"
         borderRadius="50%"
         bgColor="gray.200"
         justify="center"
         left="10px"
         top="1rem"
+        zIndex="4"
         // mr={{ base: 'unset', md: '20px' }}
         align="center"
       >

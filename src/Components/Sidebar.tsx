@@ -13,7 +13,6 @@ type Side = {
   showSide: boolean;
 };
 function Sidebar({ setShowSide, showSide }: Side) {
-  // const { logout } = useContext(UserContext);
   const closeSide = () => {
     setShowSide((prev: any) => !prev);
   };
@@ -25,6 +24,7 @@ function Sidebar({ setShowSide, showSide }: Side) {
     { label: 'Resources', href: '/resources' },
     { label: 'Pricings', href: '/pricings' },
     { label: 'SignUp', href: '/register' },
+    { label: 'Login', href: '/login' },
   ];
 
   return (

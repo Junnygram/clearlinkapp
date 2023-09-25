@@ -73,7 +73,7 @@ const Login = () => {
         justify="center"
         left="10px"
         top="1rem"
-        // mr={{ base: 'unset', md: '20px' }}
+        zIndex="4"
         align="center"
       >
         <ChevronLeftIcon

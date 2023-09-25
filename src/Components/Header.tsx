@@ -8,6 +8,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
+import Link from 'next/link';
 
 type Side = {
   setShowSide: any;
@@ -70,7 +71,10 @@ const Header = ({ showSide, setShowSide }: Side) => {
                 textColor="white"
               >
                 {' '}
-                <Text textAlign="center"> Sign up for free</Text>
+                <Link href={'/register'}>
+                  {' '}
+                  <Text textAlign="center"> Sign up for free</Text>
+                </Link>
               </Box>
             </Flex>
           </Box>
