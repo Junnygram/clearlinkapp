@@ -150,8 +150,6 @@ const Register = () => {
             // borderRadius="30px"
             px="4rem"
             mt=".2rem"
-            // py="1rem"
-            // boxShadow="0px 20px 26px rgba(186, 182, 182, 0.16)"
           >
             <VStack spacing={0} gap="1.5rem" w="100%" mb="10px">
               <Stack>
@@ -198,7 +196,10 @@ const Register = () => {
                   register={register}
                 />
                 <Grid
-                  templateColumns={['repeat(2,1fr)']}
+                  templateColumns={{
+                    base: 'repeat(1,1fr)',
+                    md: 'repeat(2,1fr)',
+                  }}
                   gap="1rem 1rem"
                   py="10px"
                 >
