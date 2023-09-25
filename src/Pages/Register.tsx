@@ -256,13 +256,13 @@ const Register = () => {
                     onChange={(e) => setTerms(e.target.checked)}
                   >
                     I have read, undrestood and accept the{' '}
-                    {/* <span
-                    style={{
-                      color: '#1570FA',
-                    }}
-                  >
-                    Terms and Conditions
-                  </span> */}
+                    <span
+                      style={{
+                        color: '#1570FA',
+                      }}
+                    >
+                      Terms and Conditions
+                    </span>
                   </Checkbox>
                 </Flex>
 
