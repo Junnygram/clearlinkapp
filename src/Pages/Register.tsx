@@ -24,7 +24,6 @@ import * as yup from 'yup';
 import YupPassword from 'yup-password';
 import toast from 'react-hot-toast';
 import { RegisterModel } from '../model/RegisterModel';
-import { BsCheckCircle } from 'react-icons/bs';
 import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import PrimaryInput from '../utils/PrimaryInput';
