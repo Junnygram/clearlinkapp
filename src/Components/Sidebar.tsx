@@ -24,7 +24,7 @@ function Sidebar({ setShowSide, showSide }: Side) {
     { label: 'Solutions', href: '/solutions' },
     { label: 'Resources', href: '/resources' },
     { label: 'Pricings', href: '/pricings' },
-    { label: 'SignUp', href: '/signup' },
+    { label: 'SignUp', href: '/register' },
   ];
 
   return (

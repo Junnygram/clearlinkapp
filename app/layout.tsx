@@ -8,6 +8,7 @@ import { Box } from '@chakra-ui/react';
 import Sidebar from '@/src/Components/Sidebar';
 import Footer from '@/src/Components/Footer';
 import { AOSInit } from '@/src/utils/aos';
+import { usePathname } from 'next/navigation';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -22,18 +23,27 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   const [showSide, setShowSide] = useState<boolean>(false);
+  const pathname = usePathname();
+  const noNav =
+    pathname?.startsWith('/login') || pathname?.startsWith('/register');
 
   return (
     <html lang="en">
       <AOSInit />
       <body>
         <Providers>
-          <Box>
-            <Sidebar showSide={showSide} setShowSide={setShowSide} />
-            <Header showSide={showSide} setShowSide={setShowSide} />
+          {noNav ? (
             <Box>{children}</Box>
-          </Box>
-          <Footer />
+          ) : (
+            <Box>
+              <Sidebar showSide={showSide} setShowSide={setShowSide} />
+              <Header showSide={showSide} setShowSide={setShowSide} />
+              <Box as="main" minH={'90vh'}>
+                {children}
+              </Box>
+              <Footer />
+            </Box>
+          )}
         </Providers>
       </body>
     </html>
