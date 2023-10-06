@@ -33,6 +33,7 @@ interface FormProps<TFormValues extends Record<string, unknown>> {
   borderRadius?: string;
   otp?: any;
   left?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value?: any;
   toolTip?: any;
   h?: any;
@@ -53,6 +54,8 @@ const PrimaryInput = <TFormValues extends Record<string, any>>({
   changeVisibility,
   focusBorderColor,
   required = false,
+  onChange,
+
   validate = {},
   borderRadius = '4px',
   otp,
@@ -100,6 +103,7 @@ const PrimaryInput = <TFormValues extends Record<string, any>>({
             {...register(name, { required, ...validate })}
             w="100%"
             h={h}
+            onChange={onChange}
             defaultValue={defaultValue}
             fontWeight={fontWeight}
             borderRadius={borderRadius}

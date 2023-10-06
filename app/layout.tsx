@@ -9,6 +9,7 @@ import Sidebar from '@/src/Components/Sidebar';
 import Footer from '@/src/Components/Footer';
 import { AOSInit } from '@/src/utils/aos';
 import { usePathname } from 'next/navigation';
+import ToasterContext from '../lib/ToasterContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,6 +33,8 @@ export default function RootLayout({
       <AOSInit />
       <body>
         <Providers>
+          <ToasterContext />
+
           {noNav ? (
             <Box>{children}</Box>
           ) : (

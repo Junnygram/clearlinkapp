@@ -12,24 +12,16 @@ datasource db {
 
 model User {
   id  String @id @default(auto()) @map("_id") @db.ObjectId
-  firstname            String
+  firstName            String
   lastName        String
   email           String  @unique
-  emailVerified   DateTime
+  emailVerified   DateTime?
   hashedPassword  String
-  imageSrc String
+  imageSrc String?
   createdAt       DateTime @default(now())
   updatedAt       DateTime @updatedAt
-  isAdmin Boolean @default(false)
-  session    Session[]
   
 }
 
-model Session {  
- id             String    @id @default(auto()) @map("_id") @db.ObjectId 
- sessionToken   String    @unique
- userId         String    @db.ObjectId
- expire         DateTime
- user           User      @relation(fields: [userId], references: [id], onDelete: Cascade)
-}
+
 

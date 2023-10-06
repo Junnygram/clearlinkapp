@@ -45,6 +45,7 @@
   },
   "devDependencies": {
     "@types/aos": "^3.0.4",
+    "@types/bcrypt": "^5.0.0",
     "@types/js-cookie": "^3.0.4"
   }
 }

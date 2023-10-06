@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, ChangeEvent, FormEvent } from 'react';
 import { ChevronLeftIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -30,6 +30,20 @@ import PrimaryInput from '../utils/PrimaryInput';
 import SubmitButton from '../utils/Submit';
 
 YupPassword(yup);
+
+interface InitialStateProps {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
+const initialState: InitialStateProps = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+};
 
 const validation = yup.object().shape({
   firstName: yup.string().required(),
@@ -63,40 +77,36 @@ const Register = () => {
     mode: 'all',
   });
 
-  const onSignup = async () => {
-    try {
-      const response = await axios.post('/api/user/signup');
-      console.log('Signup success', response.data);
-      router.push('/login');
-    } catch (error: any) {
-      console.log('Signup failed', error.message);
+  const [state, setState] = useState(initialState);
+  const [loading, setLoading] = useState(false);
 
-      toast.error(error.message);
-    } finally {
-    }
-  };
-  const onSubmitRegister = async (data: RegisterModel) => {
-    if (!terms) {
-      toast.error('You have not accepted the terms and conditions');
-      return;
-    }
-    try {
-      const response = await axios.post('/api/user/signup', {
-        requestBody: data,
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setState({ ...state, [event.target.name]: event.target.value });
+  }
+
+  function onSubmit(event: FormEvent) {
+    setLoading(true);
+    event.preventDefault();
+
+    axios
+      .post('/api/register', state)
+      .then(() => {
+        toast.success('You have successfully created an account');
+        router.refresh();
+      })
+      .then(() => {
+        setTimeout(() => {
+          router.push('/login');
+        }, 2500);
+      })
+
+      .catch((error: any) => {
+        throw new Error(error);
+      })
+      .finally(() => {
+        setLoading(false);
       });
-      console.log('Signup success', response.data);
-      router.push('/login');
-      if (response.status) {
-        toast.success(response.data as string);
-        setSuccess(true);
-        return;
-      }
-      toast.error(response.data as string);
-      return;
-    } catch (error: any) {
-      toast.error(error?.body?.message || error?.message);
-    }
-  };
+  }
 
   const year = new Date().getFullYear();
 
@@ -187,12 +197,14 @@ const Register = () => {
               </Text>
             </VStack>
             <Box w="100%" h="100%" overflow="auto" py="15px" pr="3px">
-              <form onSubmit={handleSubmit(onSubmitRegister)}>
+              {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+              <form onSubmit={onSubmit}>
                 <PrimaryInput<RegisterModel>
                   label="Email Address"
                   type="email"
                   placeholder="Enter your email"
                   name="email"
+                  onChange={handleChange}
                   error={errors.email}
                   register={register}
                 />
@@ -209,6 +221,7 @@ const Register = () => {
                     type="text"
                     placeholder="Enter your first name"
                     name="firstName"
+                    onChange={handleChange}
                     error={errors.firstName}
                     register={register}
                   />
@@ -219,6 +232,7 @@ const Register = () => {
                     placeholder="Enter your last name"
                     name="lastName"
                     error={errors.lastName}
+                    onChange={handleChange}
                     register={register}
                   />
                   <PrimaryInput<RegisterModel>
@@ -229,6 +243,7 @@ const Register = () => {
                     passwordVisible={passwordVisible}
                     changeVisibility={changeInputType}
                     name="password"
+                    onChange={handleChange}
                     error={errors.password}
                     register={register}
                   />
