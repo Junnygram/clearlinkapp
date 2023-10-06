@@ -1,5 +1,5 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, ChangeEvent, FormEvent } from 'react';
 import { ChevronLeftIcon } from '@chakra-ui/icons';
 import {
   Box,
@@ -23,8 +23,20 @@ import { LoginModel } from '../model/LoginModel';
 import { yupResolver } from '@hookform/resolvers/yup';
 import PrimaryInput from '../utils/PrimaryInput';
 import SubmitButton from '../utils/Submit';
+import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
 
 YupPassword(yup);
+
+interface InitialStateProps {
+  email: string;
+  password: string;
+}
+
+const initialState: InitialStateProps = {
+  email: '',
+  password: '',
+};
 
 const schema = yup.object().shape({
   email: yup.string().email().required(),
@@ -52,12 +64,43 @@ const Login = () => {
     mode: 'all',
   });
 
-  const onSubmit = async (data: LoginModel) => {
-    const logged = {
-      email: data.email,
-      password: data.password,
-    };
-  };
+  const [state, setState] = useState(initialState);
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
+    setState({ ...state, [event.target.name]: event.target.value });
+  }
+
+  function onSubmit(event: FormEvent) {
+    event.preventDefault();
+
+    setLoading(true);
+
+    signIn('credentials', {
+      ...state,
+      redirect: false,
+    })
+      .then((callback) => {
+        if (callback?.ok) {
+          toast.success('Logged In');
+          router.push('/dashboard');
+          router.refresh();
+        }
+
+        if (callback?.error) {
+          // throw new Error('Wrong Credentials');
+          toast.error('Wrong Credentials');
+        }
+      })
+      .catch((err: any) => {
+        // throw new Error(err);
+        toast.error('Wrong Credentials');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  }
   return (
     <Box>
       <Flex
@@ -143,13 +186,15 @@ const Login = () => {
               </Text>
             </VStack>
             <Box w="100%" h="100%" overflow="auto" py="15px" pr="3px">
-              <form onSubmit={handleSubmit(onSubmit)}>
+              {/* <form onSubmit={handleSubmit(onSubmit)}> */}
+              <form onSubmit={onSubmit}>
                 <VStack gap=".5rem" w="full">
                   <PrimaryInput<LoginModel>
                     label="Email Address"
                     type="email"
                     placeholder="Enter your email"
                     name="email"
+                    onChange={handleChange}
                     error={errors.email}
                     register={register}
                   />
@@ -161,6 +206,7 @@ const Login = () => {
                     passwordVisible={passwordVisible}
                     changeVisibility={changeInputType}
                     name="password"
+                    onChange={handleChange}
                     error={errors.password}
                     register={register}
                   />
@@ -181,6 +227,8 @@ const Login = () => {
                     Remember me
                   </Checkbox>
                 </Flex>
+                {/* <Button disabled={loading} type='submit' label='Submit'/>
+                 */}
 
                 <SubmitButton
                   textContent="sign in"
@@ -203,16 +251,18 @@ const Login = () => {
               <Flex justifyContent="space-evenly" alignItems="center" my="3rem">
                 {' '}
                 <Box
+                  as="div"
                   rounded="10px"
                   w="5rem"
                   m="5px"
                   px="1.7rem"
                   py="10px"
                   bgColor="gray.200"
+                  onClick={() => signIn('google')}
                   _hover={{ bgColor: 'gray.400' }}
                 >
                   {' '}
-                  <Image alt="any" src="/assets/homelink.png" />
+                  <Image alt="any" src="/assets/homegoogle.png" />
                 </Box>{' '}
                 <Box
                   rounded="10px"
@@ -221,10 +271,11 @@ const Login = () => {
                   px="1.7rem"
                   py="10px"
                   bgColor="gray.200"
+                  // onClick={() => signIn('linkedin')}
                   _hover={{ bgColor: 'gray.400' }}
                 >
                   {' '}
-                  <Image alt="any" src="/assets/homegoogle.png" />
+                  <Image alt="any" src="/assets/homelink.png" />
                 </Box>{' '}
                 <Box
                   rounded="10px"

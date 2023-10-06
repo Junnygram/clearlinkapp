@@ -87,7 +87,10 @@ const Register = () => {
   function onSubmit(event: FormEvent) {
     setLoading(true);
     event.preventDefault();
-
+    if (!terms) {
+      toast.error('You have not accepted the terms and conditions');
+      return;
+    }
     axios
       .post('/api/register', state)
       .then(() => {
@@ -101,7 +104,7 @@ const Register = () => {
       })
 
       .catch((error: any) => {
-        throw new Error(error);
+        // throw new Error(error);
       })
       .finally(() => {
         setLoading(false);
