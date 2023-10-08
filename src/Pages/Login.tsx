@@ -227,13 +227,10 @@ const Login = () => {
                     Remember me
                   </Checkbox>
                 </Flex>
-                {/* <Button disabled={loading} type='submit' label='Submit'/>
-                 */}
 
                 <SubmitButton
-                  textContent="sign in"
-                  isLoading={isSubmitting}
-                  isValid={isValid}
+                  textContent={`${loading ? 'Validating' : 'Sign in'}`}
+                  isDisabled={loading}
                 />
               </form>
 

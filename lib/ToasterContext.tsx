@@ -1,12 +1,13 @@
 'use client';
 
+import { Box } from '@chakra-ui/react';
 import { Toaster } from 'react-hot-toast';
 
 const ToasterContext = () => {
   return (
-    <div>
+    <Box>
       <Toaster />
-    </div>
+    </Box>
   );
 };
 

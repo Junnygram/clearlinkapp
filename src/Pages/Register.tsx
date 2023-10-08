@@ -286,7 +286,10 @@ const Register = () => {
                   </Checkbox>
                 </Flex>
 
-                <SubmitButton textContent="sign up" isLoading={isSubmitting} />
+                <SubmitButton
+                  textContent={`${loading ? 'Creating account' : 'Sign up '}`}
+                  isDisabled={loading}
+                />
               </form>
 
               <Text

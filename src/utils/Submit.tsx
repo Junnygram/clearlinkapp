@@ -3,15 +3,18 @@ import React from 'react';
 
 type Props = {
   textContent: string;
-  isLoading: any;
-  isValid?: boolean;
+  // isLoading: any;
+  // isValid?: boolean;
+  disabled?: boolean;
   h?: string;
+  isDisabled: boolean;
+  onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
 };
 
 const SubmitButton = ({
   textContent,
-  isLoading,
-  isValid = true,
+  onClick,
+  isDisabled,
   h = '3rem',
 }: Props) => {
   return (
@@ -28,12 +31,13 @@ const SubmitButton = ({
           color="white"
           transition="0.5s linear"
           cursor="pointer"
-          isLoading={isLoading}
-          isDisabled={isValid == false}
+          // isLoading={isLoading}
+          isDisabled={isDisabled}
+          onClick={onClick}
           borderRadius="5px"
           _hover={{
             backgroundColor: 'transparent',
-            color: 'brand.100',
+            color: '#53b0fb',
             border: '2px solid #1570FA',
           }}
           _focus={{
