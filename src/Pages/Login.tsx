@@ -24,7 +24,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import PrimaryInput from '../utils/PrimaryInput';
 import SubmitButton from '../utils/Submit';
 import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 
 YupPassword(yup);
 
@@ -49,8 +49,12 @@ const goBack = () => {
 };
 
 const Login = () => {
+  const router = useRouter();
+  const session = useSession();
   const [terms, setTerms] = useState<boolean>(false);
   const [passwordVisible, setPasswordVisible] = useState<boolean>(false);
+  const [state, setState] = useState(initialState);
+  const [loading, setLoading] = useState(false);
   const changeInputType = () => {
     setPasswordVisible(!passwordVisible);
   };
@@ -63,10 +67,11 @@ const Login = () => {
     resolver: yupResolver(schema),
     mode: 'all',
   });
-
-  const [state, setState] = useState(initialState);
-  const router = useRouter();
-  const [loading, setLoading] = useState(false);
+  useEffect(() => {
+    if (session?.status == 'authenticated') {
+      router.push('/dashboard');
+    }
+  }, [router, session?.status]);
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     setState({ ...state, [event.target.name]: event.target.value });

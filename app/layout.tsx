@@ -6,6 +6,7 @@ import ToasterContext from '../lib/ToasterContext';
 import Header from '@/src/Components/Header';
 import Sidebar from '@/src/Components/Sidebar';
 import Footer from '@/src/Components/Footer';
+import AuthContext from '@/lib/context/AuthContext';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -18,11 +19,13 @@ export default function RootLayout({
     <html lang="en">
       <AOSInit />
       <body>
-        <Providers>
-          {' '}
-          <ToasterContext />
-          {children}
-        </Providers>
+        <AuthContext>
+          <Providers>
+            {' '}
+            <ToasterContext />
+            {children}
+          </Providers>
+        </AuthContext>
       </body>
     </html>
   );
