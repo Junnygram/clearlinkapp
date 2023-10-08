@@ -55,10 +55,10 @@ export const authOptions: AuthOptions = {
       clientSecret: process.env.LINKEDIN_CLIENT_SECRET as string,
     }),
   ],
+
   // callbacks: {
-  //   async signIn({ user, account, profile, email, credentials }) {
-  //     console.log('User', user);
-  //     return true;
+  //   async redirect(url, baseUrl) {
+  //     return url.startsWith(baseUrl) ? url : baseUrl + '/unauthorized';
   //   },
   // },
 
