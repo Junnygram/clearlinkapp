@@ -1,22 +1,18 @@
 'use client';
-import myUser from '@/lib/context/getUser';
 import TopPage from '@/src/Components/TopPage';
 import { Avatar, Box, Button } from '@chakra-ui/react';
 import React from 'react';
 import { signOut } from 'next-auth/react';
+import getCurrentUser from '@/lib/context/getCurrentUser';
 
 // const Dashboard = async () => {
-//   const currentUser = await myUser();
+//   const user = await getCurrentUser();
 const Dashboard = () => {
   return (
     <Box>
-      {/* <Avatar name={`${currentUser?.firstName}`} src="" /> */}
+      {/* <Avatar name={`${user?.firstName}`} src="" /> */}
       <Box>
-        {/* <TopPage
-          page={`${currentUser?.firstName}`}
-          details={'Welcome Back '}
-          right={false}
-        /> */}
+        <TopPage page="yo" details={'Welcome Back '} right={false} />
       </Box>
       <Button onClick={() => signOut()}> Sign Out</Button>
     </Box>

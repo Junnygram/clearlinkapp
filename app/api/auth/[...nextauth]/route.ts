@@ -1,13 +1,10 @@
-// import { authOptions } from '@/lib/authOptions';
-// import NextAuth from 'next-auth/next';
-
-// const handler = NextAuth(authOptions);
-
 import bcrypt from 'bcrypt';
 import NextAuth, { AuthOptions } from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaAdapter } from '@next-auth/prisma-adapter';
 import prisma from '../../../../lib/prismadb';
+import GoogleProvider from 'next-auth/providers/google';
+import LinkedinProvider from 'next-auth/providers/linkedin';
 
 export const authOptions: AuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -45,9 +42,24 @@ export const authOptions: AuthOptions = {
         return user;
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID as string,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
+    }),
+    LinkedinProvider({
+      clientId: process.env.LINKEDIN_CLIENT_ID as string,
+      clientSecret: process.env.LINKEDIN_CLIENT_SECRET as string,
+    }),
   ],
+  // callbacks: {
+  //   async signIn({ user, account, profile, email, credentials }) {
+  //     console.log('User', user);
+  //     return true;
+  //   },
+  // },
+
   pages: {
-    signIn: '/',
+    signIn: '/dashboard',
   },
   debug: process.env.NODE_ENV === 'development',
   session: {
