@@ -2,12 +2,9 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '../../app/api/auth/[...nextauth]/route';
 import prisma from '../prismadb';
 import toast from 'react-hot-toast';
+import { getSession } from './getSession';
 
-export async function getSession() {
-  return await getServerSession(authOptions);
-}
-
-export default async function getCurrentUser() {
+const getCurrentUser = async () => {
   try {
     const session = await getSession();
 
@@ -26,12 +23,14 @@ export default async function getCurrentUser() {
     }
 
     return {
-      ...currentUser,
-      createdAt: currentUser.createdAt.toISOString(),
-      updatedAt: currentUser.updatedAt.toISOString(),
+      currentUser,
+      // createdAt: currentUser.createdAt.toISOString(),
+      // updatedAt: currentUser.updatedAt.toISOString(),
     };
   } catch (error: any) {
-    toast.error('Please ensure you have a good network ');
+    return null;
     // throw new Error(error);
   }
-}
+};
+
+export default getCurrentUser;

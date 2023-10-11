@@ -69,7 +69,7 @@ const LoginPage = () => {
   });
   useEffect(() => {
     if (session?.status == 'authenticated') {
-      router.push('/dashboard');
+      router.push('/users');
     }
   }, [router, session?.status]);
 
@@ -89,7 +89,7 @@ const LoginPage = () => {
       .then((callback) => {
         if (callback?.ok) {
           toast.success('Logged In');
-          router.push('/dashboard');
+          router.push('/users');
           router.refresh();
         }
 
@@ -106,6 +106,7 @@ const LoginPage = () => {
         setLoading(false);
       });
   }
+
   const isAnyFieldEmpty = !state.email || !state.password;
 
   return (
