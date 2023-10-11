@@ -23,7 +23,7 @@ const getCurrentUser = async () => {
     }
 
     return {
-      currentUser,
+      ...currentUser,
       // createdAt: currentUser.createdAt.toISOString(),
       // updatedAt: currentUser.updatedAt.toISOString(),
     };

@@ -10,7 +10,6 @@ async function UserSidebar({ children }: { children: React.ReactNode }) {
   return (
     <Flex h="full">
       <DesktopSidebar currentUser={currentUser!} />
-      {/* <DesktopSidebar currentUser={currentUser!} /> */}
       <MobileFooter />
       <Box pl={{ base: 0, lg: 20 }} h="full" w="full">
         <VStack spacing={0} align="stretch" h="full">

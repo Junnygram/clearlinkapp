@@ -68,7 +68,10 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
             _hover={{ opacity: 0.75 }}
             onClick={() => setIsOpen(true)}
           >
-            <Avatar src={`${currentUser.imageSrc}`} />
+            {/* <Avatar
+              src={`${currentUser.imageSrc ? currentUser.imageSrc : ''}`}
+            /> */}
+            <Avatar />
           </Center>
         </VStack>
       </Flex>
