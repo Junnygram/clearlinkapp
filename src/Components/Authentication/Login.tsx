@@ -106,6 +106,21 @@ const LoginPage = () => {
         setLoading(false);
       });
   }
+  const socialAction = (action: string) => {
+    setLoading(true);
+
+    signIn(action, { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error('Invalid credentials!');
+        }
+
+        if (callback?.ok) {
+          router.push('/conversations');
+        }
+      })
+      .finally(() => setLoading(false));
+  };
 
   const isAnyFieldEmpty = !state.email || !state.password;
 
@@ -263,7 +278,7 @@ const LoginPage = () => {
                   px="1.7rem"
                   py="10px"
                   bgColor="gray.200"
-                  onClick={() => signIn('google')}
+                  onClick={() => socialAction('google')}
                   _hover={{ bgColor: 'gray.400' }}
                 >
                   {' '}
