@@ -4,7 +4,7 @@ import UserSidebar from '@/src/sidebar/UserSidebar';
 import { Box } from '@chakra-ui/react';
 import { ReactNode } from 'react';
 
-export default async function UsersLayout({
+export default async function ConversationsLayout({
   children,
 }: {
   children: ReactNode;

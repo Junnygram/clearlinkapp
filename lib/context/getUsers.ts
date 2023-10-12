@@ -1,5 +1,5 @@
-import prisma from '../prismadb';
 import { getSession } from './getSession';
+import prisma from '../prismadb';
 
 const getUsers = async () => {
   const session = await getSession();
