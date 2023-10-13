@@ -1,9 +1,9 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Text, Avatar } from '@chakra-ui/react';
 import axios from 'axios';
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { User } from '@prisma/client';
-import Avatar from '@/src/sidebar/Avatar';
+// import Avatar from '@/src/sidebar/Avatar';
 
 // import Avatar from "@/app/components/Avatar";
 // import LoadingModal from "@/app/components/modals/LoadingModal";
@@ -12,7 +12,7 @@ interface UserBoxProps {
   data: User;
 }
 
-const UserBox: React.FC<UserBoxProps> = ({ data }) => {
+const UserBox = ({ data }: UserBoxProps) => {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,7 +44,8 @@ const UserBox: React.FC<UserBoxProps> = ({ data }) => {
         transition="background-color 0.2s"
         cursor="pointer"
       >
-        <Avatar user={data} />
+        {/* <Avatar user={data} /> */}
+        <Avatar name={`${data.imageSrc}`} src={`${data.imageSrc}`} />
         <Box minW={0} flex="1">
           <Box className="focus:outline-none">
             <Text fontSize="sm" fontWeight="medium" color="gray.900">

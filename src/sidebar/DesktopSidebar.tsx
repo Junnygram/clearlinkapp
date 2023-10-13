@@ -21,7 +21,7 @@ interface DesktopSidebarProps {
   currentUser: User;
 }
 
-const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
+const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
   const routes = useRoutes();
   const [isOpen, setIsOpen] = useState(false);
   console.log({ currentUser }, 'TEST');
@@ -71,7 +71,10 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({ currentUser }) => {
             {/* <Avatar
               src={`${currentUser.imageSrc ? currentUser.imageSrc : ''}`}
             /> */}
-            <Avatar />
+            <Avatar
+              src={`${currentUser.imageSrc}`}
+              name={`${currentUser.firstName}`}
+            />
           </Center>
         </VStack>
       </Flex>

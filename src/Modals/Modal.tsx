@@ -11,7 +11,7 @@
 //   children: React.ReactNode;
 // }
 
-// const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
+// const Modal = ({ isOpen, onClose, children }:ModalProps) => {
 //   return (
 //     <Transition.Root show={isOpen} as={Fragment}>
 //       <Dialog as="div" className="relative z-50" onClose={onClose}>

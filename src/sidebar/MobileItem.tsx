@@ -8,12 +8,12 @@ interface MobileItemProps {
   onClick?: () => void;
 }
 
-const MobileItem: React.FC<MobileItemProps> = ({
+const MobileItem = ({
   href,
   icon: IconComponent,
   active,
   onClick,
-}) => {
+}: MobileItemProps) => {
   const router = useRouter();
 
   const handleClick = () => {

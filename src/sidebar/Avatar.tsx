@@ -6,7 +6,7 @@ interface AvatarProps {
   user?: User;
 }
 
-const Avatar: React.FC<AvatarProps> = ({ user }) => {
+const Avatar = ({ user }: AvatarProps) => {
   //   const { members } = useActiveList();
   //   const isActive = members.includes(user?.email || "");
 
