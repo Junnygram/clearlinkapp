@@ -1,4 +1,6 @@
+import getConversations from '@/lib/context/getConversations';
 import getUsers from '@/lib/context/getUsers';
+import ConversationList from '@/src/Components/Conversations/ConversationList';
 import UserList from '@/src/Components/UsersComponent/UserList';
 import UserSidebar from '@/src/sidebar/UserSidebar';
 import { Box } from '@chakra-ui/react';
@@ -9,13 +11,13 @@ export default async function ConversationsLayout({
 }: {
   children: ReactNode;
 }) {
-  const users = await getUsers();
+  const conversations = await getConversations();
 
   return (
     <Box>
       <UserSidebar>
         <Box h="full">
-          <UserList items={users!} />
+          <ConversationList initialItems={conversations} />
           {children}
         </Box>
       </UserSidebar>

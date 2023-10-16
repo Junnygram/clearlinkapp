@@ -4,8 +4,11 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
+    appDir: true,
+    serverComponentsExternalPackages: ['bcrypt'],
     swcPlugins: [['next-superjson-plugin', {}]],
   },
+
   images: {
     domains: [
       'res.cloudinary.com',

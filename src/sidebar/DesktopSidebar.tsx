@@ -72,8 +72,8 @@ const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
               src={`${currentUser.imageSrc ? currentUser.imageSrc : ''}`}
             /> */}
             <Avatar
-              src={`${currentUser.imageSrc}`}
-              name={`${currentUser.firstName}`}
+              src={`${currentUser?.imageSrc}`}
+              name={`${currentUser?.firstName}`}
             />
           </Center>
         </VStack>
