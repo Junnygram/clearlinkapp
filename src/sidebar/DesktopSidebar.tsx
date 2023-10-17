@@ -54,7 +54,7 @@ const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
             <Box key={item.label}>
               <DesktopItem
                 href={item.href}
-                label={item.label}
+                // label={item.label}
                 icon={item.icon}
                 active={item.active}
                 onClick={item.onClick}

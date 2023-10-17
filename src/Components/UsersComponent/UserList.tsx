@@ -19,7 +19,7 @@ const UserList = ({ items }: UserListProps) => {
       borderRight="1px solid #E2E8F0"
       overflowY="auto"
     >
-      <VStack spacing={4} align="start" paddingX={5}>
+      <VStack align="start" paddingX={5}>
         <Text
           fontSize="2xl"
           fontWeight="bold"

@@ -52,7 +52,7 @@ import { Box, Flex, Icon, Link, List, ListItem } from '@chakra-ui/react';
 import { useRouter, usePathname } from 'next/navigation';
 
 interface DesktopItemProps {
-  label: string;
+  label?: string;
   icon: any;
   href: string;
   onClick?: () => void;

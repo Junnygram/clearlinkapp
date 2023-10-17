@@ -38,9 +38,9 @@ const ChatHeader = ({ conversation }: HeaderProps) => {
   const groupedHeaderAvatar = conversation.users;
   return (
     <>
-      {/* <ProfileDrawer 
-        data={conversation} 
-        isOpen={drawerOpen} 
+      {/* <ProfileDrawer
+        data={conversation}
+        isOpen={drawerOpen}
         onClose={() => setDrawerOpen(false)}
       /> */}
       <Box

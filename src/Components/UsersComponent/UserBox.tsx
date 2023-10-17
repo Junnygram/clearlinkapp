@@ -38,17 +38,20 @@ const UserBox = ({ data }: UserBoxProps) => {
         alignItems="center"
         justifyContent="space-between"
         bg="white"
-        // p={1}
-        _hover={{ bg: 'neutral.100' }}
         rounded="lg"
         transition="background-color 0.2s"
         cursor="pointer"
+        _hover={{
+          color: 'black',
+          bg: 'gray.100',
+        }}
+        _active={{ bgColor: 'gray.200', textColor: 'black' }}
       >
         <Avatar name={`${data.imageSrc}`} src={`${data.imageSrc}`} />
         <Box minW={0} flex="1">
           <Box className="focus:outline-none">
             <Text fontSize="sm" fontWeight="medium" color="gray.900" ml={2}>
-              {data.firstName}
+              {data.firstName} {data?.lastName}
             </Text>
           </Box>
         </Box>

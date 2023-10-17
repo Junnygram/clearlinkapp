@@ -4,8 +4,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    appDir: true,
-    serverComponentsExternalPackages: ['bcrypt'],
+    // serverComponentsExternalPackages: ['bcrypt'],
     swcPlugins: [['next-superjson-plugin', {}]],
   },
 

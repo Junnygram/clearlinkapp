@@ -11,7 +11,7 @@ interface MobileItemProps {
 const MobileItem = ({
   href,
   icon: IconComponent,
-  active,
+
   onClick,
 }: MobileItemProps) => {
   const router = useRouter();

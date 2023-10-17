@@ -1,4 +1,3 @@
-'use client';
 import React, { useCallback, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
 import { Box, Flex, Text, Avatar, AvatarGroup } from '@chakra-ui/react';
