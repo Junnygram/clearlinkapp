@@ -1,5 +1,6 @@
+'use client';
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form';
-import { Input } from '@chakra-ui/react';
+import { Box, Input } from '@chakra-ui/react';
 
 interface MessageInputProps {
   placeholder?: string;
@@ -10,17 +11,19 @@ interface MessageInputProps {
   errors: FieldErrors;
 }
 
-const MessageInput: React.FC<MessageInputProps> = ({
+const MessageInput = ({
   placeholder,
   id,
   type,
   required,
   register,
   errors,
-}) => {
+}: MessageInputProps) => {
   return (
-    <div className="relative w-full">
+    <Box pos="relative" w="full">
       <Input
+        w="full"
+        rounded="full"
         id={id}
         type={type}
         autoComplete={id}
@@ -28,7 +31,7 @@ const MessageInput: React.FC<MessageInputProps> = ({
         placeholder={placeholder}
         borderColor={errors[id] ? 'red.500' : 'gray.200'}
       />
-    </div>
+    </Box>
   );
 };
 

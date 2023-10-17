@@ -1,6 +1,12 @@
+'use client';
 import { HiPaperAirplane, HiPhoto } from 'react-icons/hi2';
-
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
+import {
+  FieldValues,
+  RegisterOptions,
+  SubmitHandler,
+  UseFormRegisterReturn,
+  useForm,
+} from 'react-hook-form';
 import axios from 'axios';
 import { CldUploadButton } from 'next-cloudinary';
 
@@ -11,8 +17,10 @@ import {
   FormControl,
   FormLabel,
   FormErrorMessage,
+  Box,
 } from '@chakra-ui/react';
 import useConversation from '@/src/hooks/useConversation';
+import MessageInput from './MessageInput';
 
 const Form = () => {
   const { conversationId } = useConversation();
@@ -53,33 +61,38 @@ const Form = () => {
       borderTopWidth="1px"
       width="100%"
     >
-      <CldUploadButton
-        options={{ maxFiles: 1 }}
-        onUpload={handleUpload}
-        uploadPreset="pgc9ehd5"
-      >
-        <Button size="sm" color="sky.500">
-          <HiPhoto size={6} />
-        </Button>
-      </CldUploadButton>
-      {/* <form onSubmit={handleSubmit(onSubmit)} width="100%" display="flex" align="center" spacing={4}>
-        <FormControl isInvalid={errors.message}>
-          <FormLabel htmlFor="message">Write a message</FormLabel>
-          <Input
-            id="message"
-            {...register("message", { required: true })}
-          />
-          <FormErrorMessage>{errors.message && "Message is required"}</FormErrorMessage>
-        </FormControl>
-        <Button
-          type="submit"
-          size="sm"
-          bgColor="sky.500"
-          _hover={{ bgColor: "sky.600" }}
+      <Box>
+        <CldUploadButton
+          options={{ maxFiles: 1 }}
+          onUpload={handleUpload}
+          uploadPreset="pgc9ehd5"
         >
-          <HiPaperAirplane size={6} color="white" />
+          <Button size="sm" color="blue.200">
+            <HiPhoto size={16} />
+          </Button>
+        </CldUploadButton>
+      </Box>
+      <Box>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <MessageInput
+            id="message"
+            required
+            register={register}
+            placeholder="write a message"
+            errors={errors}
+          />
+        </form>
+      </Box>
+      <Box>
+        <Button
+          size="sm"
+          type="submit"
+          bgColor="blue.200"
+          _hover={{ bgColor: 'blue.600' }}
+        >
+          <HiPaperAirplane size={16} color="white" />
         </Button>
-      </form> */}
+      </Box>
     </Stack>
   );
 };
