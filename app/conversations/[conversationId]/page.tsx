@@ -1,4 +1,3 @@
-'use client';
 import getConversationById from '@/lib/context/getConversationById';
 import getMessages from '@/lib/context/getMessages';
 import Body from '@/src/Components/Conversations/Body';
@@ -11,14 +10,14 @@ interface IParams {
   conversationId: string;
 }
 
-const ChatId = async ({ params }: { params: IParams }) => {
+const ConversationId = async ({ params }: { params: IParams }) => {
   const conversation = await getConversationById(params.conversationId);
   const messages = await getMessages(params.conversationId);
 
   if (!conversation) {
     return (
-      <Flex className="lg:pl-80 h-full">
-        <Flex h="full" dir="column">
+      <Flex pl={{ base: 0, lg: 80 }} h="full">
+        <Flex h="full" w="full" dir="column">
           <EmptyState />
         </Flex>
       </Flex>
@@ -26,12 +25,14 @@ const ChatId = async ({ params }: { params: IParams }) => {
   }
 
   return (
-    <Flex pl={{ lg: '80' }} h="full">
-      {/* <Flex h="full" dir="column"> */}
-      <ChatHeader conversation={conversation} />
-      {/* <Body initialMessages={messages} />
-        <Form />
-      </Flex> */}
-    </Flex>
+    <Box h="full" pl={{ lg: '80' }}>
+      <Flex h="full" dir="column" w="full">
+        <ChatHeader conversation={conversation} />
+        {/* <Body initialMessages={messages} />
+        <Form /> */}
+      </Flex>
+    </Box>
   );
 };
+
+export default ConversationId;

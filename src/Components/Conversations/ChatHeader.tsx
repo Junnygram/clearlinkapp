@@ -60,11 +60,11 @@ const ChatHeader = ({ conversation }: HeaderProps) => {
             <Box
               display={{ base: 'block', lg: 'none' }}
               color="sky.500"
-              _hover={{ color: 'sky.600' }}
+              _hover={{ color: 'blue.200' }}
               transition="color 0.2s"
               cursor="pointer"
             >
-              <HiChevronLeft size={6} />
+              <HiChevronLeft size={20} />
             </Box>
           </Link>
           {conversation.isGroup ? (
@@ -81,21 +81,24 @@ const ChatHeader = ({ conversation }: HeaderProps) => {
           )}
 
           <Box display="flex" flexDirection="column">
-            <Text>{conversation.name || otherUser.firstName}</Text>
+            <Text>
+              {conversation.name || otherUser.firstName} {otherUser?.lastName}
+            </Text>
             <Text fontSize="sm" fontWeight="light" color="neutral.500">
               {/* {statusText} */}
             </Text>
           </Box>
         </Box>
-        <IconButton
-          size="lg"
+        {/* <IconButton
           colorScheme="sky"
           icon={<Icon as={HiEllipsisHorizontal} />}
           onClick={() => setDrawerOpen(true)}
-          _hover={{ color: 'sky.600' }}
+          _hover={{ color: 'blue.200' }}
           transition="color 0.2s"
           aria-label="icon"
-        />
+          boxSize={6}
+        /> */}
+        <HiEllipsisHorizontal size={20} />
       </Box>
     </>
   );

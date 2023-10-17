@@ -29,7 +29,7 @@ const getConversations = async () => {
       },
     });
 
-    return { ...conversations };
+    return conversations;
   } catch (error: any) {
     return [];
   }

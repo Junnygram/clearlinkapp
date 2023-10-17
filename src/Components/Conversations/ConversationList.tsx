@@ -28,7 +28,7 @@ const ConversationList = ({ initialItems }: ConversationListProps) => {
         position="fixed"
         insetY={0}
         paddingBottom={20}
-        display={isOpen ? 'none' : 'unset'}
+        display={{ base: isOpen ? 'none' : 'block', lg: 'block' }}
         left={{ base: isOpen ? '0' : 'unset', lg: '20' }}
         pb={{ base: '20', lg: '0' }}
         w={{ base: isOpen ? 'full' : 'unset', lg: '80' }}
@@ -48,25 +48,25 @@ const ConversationList = ({ initialItems }: ConversationListProps) => {
               // onClick={() => setIsModalOpen(true)}
               aria-label="Add group"
               rounded="full"
-              p={2}
               ml="10px"
               bg="gray.100"
               color="gray.600"
               cursor="pointer"
-              _hover={{ opacity: 0.75 }}
+              _hover={{ opacity: 0.75, color: 'black' }}
               transition="opacity 0.2s"
-              boxSize="6"
+              h={6}
+              w={6}
               icon={<MdOutlineGroupAdd />}
             />
           </Flex>
 
-          {/* {items.map((item) => (
+          {items.map((item) => (
             <ConversationBox
               key={item.id}
               data={item}
               selected={conversationId === item.id}
             />
-          ))} */}
+          ))}
         </Box>
       </Box>
     </>

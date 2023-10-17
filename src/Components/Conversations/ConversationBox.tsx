@@ -2,8 +2,6 @@ import React, { useCallback, useMemo } from 'react';
 import { useSession } from 'next-auth/react';
 import { Box, Flex, Text, Avatar, AvatarGroup } from '@chakra-ui/react';
 import { format } from 'date-fns';
-//  import AvatarGroup from '@/app/components/AvatarGroup'; // If you have a custom AvatarGroup component
-
 import { useRouter } from 'next/navigation';
 import useOtherUser from '@/src/hooks/useOtherUser';
 import { FullConversationType } from '@/src/types';
@@ -67,9 +65,13 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
       position="relative"
       display="flex"
       alignItems="center"
-      gap="3"
+      gap="2"
       p="3"
-      _hover={{ bg: 'neutral.100' }}
+      _hover={{
+        color: 'black',
+        bg: 'gray.100',
+      }}
+      _active={{ bgColor: 'gray.200', textColor: 'black' }}
       rounded="lg"
       transition="background-color 0.3s"
       cursor="pointer"
@@ -90,7 +92,7 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
           <span className="absolute inset-0" aria-hidden="true" />
           <Flex justify="space-between" align="center" mb="1">
             <Text fontSize="md" fontWeight="medium" color="gray.900">
-              {data.name || otherUser.firstName}
+              {data.name || otherUser.firstName} {otherUser.lastName}
             </Text>
             {lastMessage?.createdAt && (
               <Text fontSize="xs" color="gray.400" fontWeight="light">

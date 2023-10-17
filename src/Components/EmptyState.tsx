@@ -31,19 +31,3 @@ const EmptyState = () => {
 };
 
 export default EmptyState;
-
-// import { Box, Center, Text } from '@chakra-ui/react';
-
-// const EmptyState = () => {
-//   return (
-//     <Center h="full" bg="gray.100">
-//       <Box p={4} px={{ base: 4, sm: 6, lg: 8 }}>
-//         <Text mt={2} fontSize="2xl" fontWeight="semibold" color="gray.900">
-//           Select a chat or start a new conversation
-//         </Text>
-//       </Box>
-//     </Center>
-//   );
-// };
-
-// export default EmptyState;

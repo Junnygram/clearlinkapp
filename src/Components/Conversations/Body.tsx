@@ -68,14 +68,15 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
 
   return (
     <Box display="flex" flex="1" overflowY="auto">
-      {messages.map((message, i) => (
+      {/* {messages.map((message, i) => (
         <MessageBox
           isLast={i === messages.length - 1}
           key={message.id}
           data={message}
         />
       ))}
-      <Box pt="24" ref={bottomRef} />
+      <Box pt="24" ref={bottomRef} /> */}{' '}
+      body
     </Box>
   );
 };
