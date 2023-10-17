@@ -28,8 +28,8 @@ const ConversationId = async ({ params }: { params: IParams }) => {
     <Box h="full" pl={{ lg: '80' }}>
       <Flex h="full" dir="column" w="full">
         <ChatHeader conversation={conversation} />
-        {/* <Body initialMessages={messages} />
-        <Form /> */}
+        {/* <Body initialMessages={messages} /> */}
+        {/* <Form /> */}
       </Flex>
     </Box>
   );
