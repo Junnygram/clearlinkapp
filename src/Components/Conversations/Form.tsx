@@ -61,43 +61,54 @@ const Form = () => {
       borderTopWidth="1px"
       gap="2"
     >
-      <Box>
-        {/* <CldUploadButton
+      <Box pt="1">
+        <CldUploadButton
           options={{ maxFiles: 1 }}
           onUpload={handleUpload}
-          uploadPreset="pgc9ehd5"
-        > */}
-        <Button
-          size="sm"
-          color="white"
-          bgColor="blue.200"
-          _hover={{ bgColor: 'blue.600' }}
+          uploadPreset="bqjnebqw"
         >
-          <HiPhoto size={16} />
-        </Button>
-        {/* </CldUploadButton> */}
+          <Box
+            // size="sm"
+            p="2 "
+            borderRadius="10px"
+            color="white"
+            bgColor="blue.200"
+            _hover={{ bgColor: 'blue.600' }}
+          >
+            <HiPhoto size={16} />
+          </Box>
+        </CldUploadButton>
       </Box>
       <Box w="full">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <MessageInput
-            id="message"
-            required
-            register={register}
-            placeholder="write a message"
-            errors={errors}
-          />
+          <Flex w="full" width="full" gap="2" align="center">
+            <MessageInput
+              id="message"
+              required
+              register={register}
+              placeholder="write a message"
+              errors={errors}
+            />
+            <Button
+              size="sm"
+              type="submit"
+              bgColor="blue.200"
+              _hover={{ bgColor: 'blue.600' }}
+            >
+              <HiPaperAirplane size={16} color="white" />
+            </Button>
+          </Flex>
         </form>
       </Box>
-      <Box>
-        <Button
+
+      {/* <Button
           size="sm"
           type="submit"
           bgColor="blue.200"
           _hover={{ bgColor: 'blue.600' }}
         >
           <HiPaperAirplane size={16} color="white" />
-        </Button>
-      </Box>
+        </Button> */}
     </Flex>
   );
 };
