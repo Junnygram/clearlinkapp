@@ -16,15 +16,15 @@ interface BodyProps {
   initialMessages: FullMessageType[];
 }
 
-const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
+const Body = ({ initialMessages = [] }: BodyProps) => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const [messages, setMessages] = useState(initialMessages);
 
   const { conversationId } = useConversation();
 
-  useEffect(() => {
-    axios.post(`/api/conversations/${conversationId}/seen`);
-  }, [conversationId]);
+  // useEffect(() => {
+  //   axios.post(`/api/conversations/${conversationId}/seen`);
+  // }, [conversationId]);
 
   // useEffect(() => {
   //   pusherClient.subscribe(conversationId);
@@ -67,7 +67,7 @@ const Body: React.FC<BodyProps> = ({ initialMessages = [] }) => {
   // }, [conversationId]);
 
   return (
-    <Box display="flex" flex="1" overflowY="auto">
+    <Box display="flex" flex="1" overflowY="auto" h="full" mx="4">
       {/* {messages.map((message, i) => (
         <MessageBox
           isLast={i === messages.length - 1}

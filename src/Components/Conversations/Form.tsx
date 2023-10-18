@@ -13,9 +13,10 @@ import { CldUploadButton } from 'next-cloudinary';
 import {
   Button,
   Input,
-  Stack,
+  HStack,
   FormControl,
   FormLabel,
+  Flex,
   FormErrorMessage,
   Box,
 } from '@chakra-ui/react';
@@ -52,27 +53,31 @@ const Form = () => {
   };
 
   return (
-    <Stack
-      direction="row"
+    <Flex
       align="center"
+      // justify="space-between"
       paddingY={4}
       paddingX={4}
-      bg="white"
       borderTopWidth="1px"
-      width="100%"
+      gap="2"
     >
       <Box>
-        <CldUploadButton
+        {/* <CldUploadButton
           options={{ maxFiles: 1 }}
           onUpload={handleUpload}
           uploadPreset="pgc9ehd5"
+        > */}
+        <Button
+          size="sm"
+          color="white"
+          bgColor="blue.200"
+          _hover={{ bgColor: 'blue.600' }}
         >
-          <Button size="sm" color="blue.200">
-            <HiPhoto size={16} />
-          </Button>
-        </CldUploadButton>
+          <HiPhoto size={16} />
+        </Button>
+        {/* </CldUploadButton> */}
       </Box>
-      <Box>
+      <Box w="full">
         <form onSubmit={handleSubmit(onSubmit)}>
           <MessageInput
             id="message"
@@ -93,7 +98,7 @@ const Form = () => {
           <HiPaperAirplane size={16} color="white" />
         </Button>
       </Box>
-    </Stack>
+    </Flex>
   );
 };
 

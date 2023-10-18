@@ -26,9 +26,9 @@ const ConversationId = async ({ params }: { params: IParams }) => {
 
   return (
     <Flex pl={{ lg: '80' }} h="full">
-      <Flex h="full" flexDir="column" w="full">
+      <Flex h="100vh" flexDir="column" w="full">
         <ChatHeader conversation={conversation} />
-        {/* <Body initialMessages={messages} /> */}
+        <Body initialMessages={messages} />
         <Form />
       </Flex>
     </Flex>

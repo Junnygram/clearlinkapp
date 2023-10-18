@@ -39,7 +39,6 @@ const MobileItem = ({
         color: 'black',
         bg: 'gray.100',
       }}
-      _active={{ bgColor: 'gray.100', textColor: 'black' }}
     >
       <Icon as={IconComponent} h={6} w={6} />
     </Link>
