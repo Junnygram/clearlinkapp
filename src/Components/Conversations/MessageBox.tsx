@@ -4,7 +4,16 @@ import { useSession } from 'next-auth/react';
 
 import ImageModal from './ImageModal';
 
-import { Box, Flex, Text, Image, Avatar } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Text,
+  Image,
+  Avatar,
+  HStack,
+  VStack,
+  Grid,
+} from '@chakra-ui/react';
 import { FullMessageType } from '@/src/types';
 
 interface MessageBoxProps {
@@ -23,18 +32,22 @@ const MessageBox = ({ data, isLast }: MessageBoxProps) => {
     .join(', ');
 
   return (
-    <Flex justify={isOwn ? 'end ' : 'unset'} gap="3" p="4" alignItems="center">
+    <Flex
+      justify={isOwn ? 'end ' : 'unset'}
+      gap="3"
+      p="4"
+      alignItems="center"
+      w="full"
+    >
       <Box order={isOwn ? '2' : 'unset'}>
-        <Avatar name={data.sender.firstName!} src={data.sender.imageSrc!} />
+        <Avatar
+          name={data.sender.firstName!}
+          src={data.sender.imageSrc!}
+          size="sm"
+        />
       </Box>
-      <Flex
-        flexDir="column"
-        gap="2"
-        justify={isOwn ? 'end' : 'unset'}
-        align={isOwn ? 'end' : ''}
-        // className={clsx('flex flex-col gap-2', isOwn && 'items-end')}
-        flex={1}
-      >
+
+      <Flex flexDir="column" gap="2" align={isOwn ? 'end' : ''} flex={1}>
         <Flex gap="1" justify="center" align="center">
           <Text textColor="gray.500" fontSize="sm">
             {data.sender.firstName}
@@ -45,18 +58,18 @@ const MessageBox = ({ data, isLast }: MessageBoxProps) => {
         </Flex>
         <Box
           fontSize="sm"
-          textColor="blue.100"
+          textColor="white"
           overflow="hidden"
-          bgColor={isOwn ? 'blue.100' : 'gray.100'}
-          borderRadius={data.image ? ' ' : ''}
-          p={data.image ? '0' : '2px 3px'}
+          bgColor={isOwn ? 'blue.100' : ''}
+          borderRadius={data.image ? ' ' : '10px'}
+          p={data.image ? '0' : '2px 4px'}
           position="relative"
         >
-          <ImageModal
+          {/* <ImageModal
             src={data.image}
             isOpen={imageModalOpen}
             onClose={() => setImageModalOpen(false)}
-          />
+          /> */}
           {data.image ? (
             <Image
               alt="Image"
@@ -66,7 +79,10 @@ const MessageBox = ({ data, isLast }: MessageBoxProps) => {
               onClick={() => setImageModalOpen(true)}
               src={data.image}
               objectFit="cover"
-              _hover={{ transform: 'scale(1.1)', transition: 'transform 0.2s' }}
+              _hover={{
+                transform: 'scale(1.1)',
+                transition: 'transform 0.2s',
+              }}
             />
           ) : (
             <Text>{data.body}</Text>

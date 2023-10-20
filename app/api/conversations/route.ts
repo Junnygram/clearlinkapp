@@ -89,12 +89,11 @@ export async function POST(request: Request) {
       },
     });
 
-    // Update all connections with new conversation
-    newConversation.users.map((...user) => {
-      //   if (user.email) {
-      //     pusherServer.trigger(user.email, 'conversation:new', newConversation);
-      //   }
-    });
+    // newConversation.users.map((user) => {
+    //     if (user.email) {
+    //       pusherServer.trigger(user.email, 'conversation:new', newConversation);
+    //     }
+    // });
 
     return NextResponse.json(newConversation);
   } catch (error) {

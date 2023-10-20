@@ -22,9 +22,9 @@ const Body = ({ initialMessages = [] }: BodyProps) => {
 
   const { conversationId } = useConversation();
 
-  // useEffect(() => {
-  //   axios.post(`/api/conversations/${conversationId}/seen`);
-  // }, [conversationId]);
+  useEffect(() => {
+    axios.post(`/api/conversations/${conversationId}/seen`);
+  }, [conversationId]);
 
   // useEffect(() => {
   //   pusherClient.subscribe(conversationId);
@@ -67,17 +67,16 @@ const Body = ({ initialMessages = [] }: BodyProps) => {
   // }, [conversationId]);
 
   return (
-    <Box display="flex" flex="1" overflowY="auto" h="full" mx="4">
-      {/* {messages.map((message, i) => (
+    <Flex h="full" overflowY="auto" mx="4" flexDir="column">
+      {messages.map((message, i) => (
         <MessageBox
           isLast={i === messages.length - 1}
           key={message.id}
           data={message}
         />
       ))}
-      <Box pt="24" ref={bottomRef} /> */}{' '}
-      body
-    </Box>
+      <Box pt="24" ref={bottomRef} />
+    </Flex>
   );
 };
 

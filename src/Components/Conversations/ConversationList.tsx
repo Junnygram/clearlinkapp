@@ -33,7 +33,8 @@ const ConversationList = ({ initialItems }: ConversationListProps) => {
         pb={{ base: '20', lg: '0' }}
         w={{ base: isOpen ? 'full' : 'unset', lg: '80' }}
         overflowY="auto"
-        borderRight="1px solid gray.200"
+        borderRight="1px "
+        borderRightColor="gray.200"
       >
         <Box px={5}>
           <Flex justifyContent="space-between" mb={4} pt={4} align="center">
