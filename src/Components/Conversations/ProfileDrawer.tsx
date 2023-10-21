@@ -1,5 +1,6 @@
 'use client';
 import useOtherUser from '@/src/hooks/useOtherUser';
+import { Box } from '@chakra-ui/react';
 import { Conversation, User } from '@prisma/client';
 import React from 'react';
 interface ProfileDrawerProps {
@@ -12,7 +13,7 @@ interface ProfileDrawerProps {
 const ProfileDrawer = ({ data, isOpen, onClose }: ProfileDrawerProps) => {
   const otherUser = useOtherUser(data);
 
-  return <div>ProfileDrawer</div>;
+  return <Box></Box>;
 };
 
 export default ProfileDrawer;
