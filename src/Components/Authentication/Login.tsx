@@ -69,7 +69,7 @@ const LoginPage = () => {
   });
   useEffect(() => {
     if (session?.status == 'authenticated') {
-      router.push('/dashboard');
+      router.push('/users');
     }
   }, [router, session?.status]);
 
@@ -89,7 +89,7 @@ const LoginPage = () => {
       .then((callback) => {
         if (callback?.ok) {
           toast.success('Logged In');
-          router.push('/dashboard');
+          router.push('/users');
           router.refresh();
         }
 
@@ -106,6 +106,22 @@ const LoginPage = () => {
         setLoading(false);
       });
   }
+  const socialAction = (action: string) => {
+    setLoading(true);
+
+    signIn(action, { redirect: false })
+      .then((callback) => {
+        if (callback?.error) {
+          toast.error('Invalid credentials!');
+        }
+
+        if (callback?.ok) {
+          router.push('/conversations');
+        }
+      })
+      .finally(() => setLoading(false));
+  };
+
   const isAnyFieldEmpty = !state.email || !state.password;
 
   return (
@@ -262,7 +278,7 @@ const LoginPage = () => {
                   px="1.7rem"
                   py="10px"
                   bgColor="gray.200"
-                  onClick={() => signIn('google')}
+                  onClick={() => socialAction('google')}
                   _hover={{ bgColor: 'gray.400' }}
                 >
                   {' '}

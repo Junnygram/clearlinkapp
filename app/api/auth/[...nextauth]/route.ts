@@ -59,7 +59,7 @@ export const authOptions: AuthOptions = {
   // },
 
   pages: {
-    signIn: '/dashboard',
+    signIn: '/users',
   },
   debug: process.env.NODE_ENV === 'development',
   session: {

@@ -70,7 +70,7 @@ export async function POST(request: Request) {
     // });
 
     return NextResponse.json(newMessage);
-  } catch (error) {
+  } catch (error: any) {
     console.log(error, 'ERROR_MESSAGES');
     return new NextResponse('Error', { status: 500 });
   }

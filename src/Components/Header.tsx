@@ -9,6 +9,8 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import Link from 'next/link';
+import useHeaderRoutes from '../hooks/useHeaderRoutes';
+import { usePathname } from 'next/navigation';
 
 type Side = {
   setShowSide: any;
@@ -16,6 +18,9 @@ type Side = {
 };
 
 const Header = ({ showSide, setShowSide }: Side) => {
+  const headerRoutes = useHeaderRoutes();
+  const pathname = usePathname();
+
   return (
     <Box mt={{ lg: '.8rem' }} w={{ base: '100%', lg: '95%' }} mx="auto">
       <Box
@@ -33,22 +38,19 @@ const Header = ({ showSide, setShowSide }: Side) => {
             fontSize="14px"
           >
             <HStack>
-              <Flex align="center">
-                <Text>Products</Text> <ChevronDownIcon />
-              </Flex>{' '}
-              <Flex align="center">
-                {' '}
-                <Text>Solutions</Text> <ChevronDownIcon />
-              </Flex>{' '}
-              <Flex align="center">
-                {' '}
-                <Text>Resources</Text> <ChevronDownIcon />
-              </Flex>{' '}
-              <Flex align="center">
-                {' '}
-                <Text>Pricings </Text>
-                <ChevronDownIcon />
-              </Flex>
+              {headerRoutes.map((x) => (
+                <>
+                  <Flex
+                    align="center"
+                    // color={pathname?.startsWith(href) ? 'black' : 'gray.500'}
+                    _hover={{
+                      color: 'black',
+                    }}
+                  >
+                    <Text key={x.key}>{x.label}</Text> <ChevronDownIcon />
+                  </Flex>
+                </>
+              ))}
             </HStack>
           </Box>
           <Box display={{ base: 'none', md: 'flex' }} fontSize="14px">
@@ -59,6 +61,7 @@ const Header = ({ showSide, setShowSide }: Side) => {
                 py="5px"
                 px="14px"
                 rounded="15px"
+                _hover={{ backgroundColor: 'blue.200', textColor: 'gray.200' }}
               >
                 <Text textAlign="center">Talk to sales</Text>
               </Box>
@@ -69,6 +72,7 @@ const Header = ({ showSide, setShowSide }: Side) => {
                 rounded="15px"
                 bgColor="#175CD3"
                 textColor="white"
+                _hover={{ backgroundColor: 'blue.200', textColor: 'gray.200' }}
               >
                 {' '}
                 <Link href={'/register'}>
