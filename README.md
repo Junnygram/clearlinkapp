@@ -48,7 +48,6 @@ To run Clearlink locally, follow these steps:
 - Create a pull request to the main Clearlink repository.
   We will review your contribution and merge it if it aligns with the project's goals.
   License
-  Clearlink is open-source software released under the https://github.com/opensauceryafrica/assessment . You are free to use, modify, and distribute the code as per the terms of the license.
 
 Thank you for using Clearlink! If you have any questions, encounter issues, or want to contribute, feel free to reach out to us. Happy video chatting!
 

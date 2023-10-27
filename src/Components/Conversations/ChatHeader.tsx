@@ -92,16 +92,10 @@ const ChatHeader = ({ conversation }: HeaderProps) => {
             </Text>
           </Box>
         </Box>
-        {/* <IconButton
-          colorScheme="sky"
-          icon={<Icon as={HiEllipsisHorizontal} />}
-          onClick={() => setDrawerOpen(true)}
-          _hover={{ color: 'blue.200' }}
-          transition="color 0.2s"
-          aria-label="icon"
-          boxSize={6}
-        /> */}
-        <HiEllipsisHorizontal size={20} />
+        <HiEllipsisHorizontal
+          size={20}
+          onClick={() => setDrawerOpen((prev: any) => !prev)}
+        />
       </Box>
     </>
   );
