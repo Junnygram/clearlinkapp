@@ -13,7 +13,7 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Conversation, User } from '@prisma/client';
 import useOtherUser from '@/src/hooks/useOtherUser';
-import useActiveList from '@/src/hooks/useActiveList';
+// import useActiveList from '@/src/hooks/useActiveList';
 import ProfileDrawer from './ProfileDrawer';
 
 interface HeaderProps {
@@ -78,8 +78,8 @@ const ChatHeader = ({ conversation }: HeaderProps) => {
             </AvatarGroup>
           ) : (
             <Avatar
-              src={`${otherUser.imageSrc}`}
-              name={`${otherUser.firstName}`}
+              src={`${otherUser?.imageSrc}`}
+              name={`${otherUser?.firstName} ${otherUser?.lastName}`}
             />
           )}
 
