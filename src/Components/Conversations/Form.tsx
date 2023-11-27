@@ -100,15 +100,6 @@ const Form = () => {
           </Flex>
         </form>
       </Box>
-
-      {/* <Button
-          size="sm"
-          type="submit"
-          bgColor="blue.200"
-          _hover={{ bgColor: 'blue.600' }}
-        >
-          <HiPaperAirplane size={16} color="white" />
-        </Button> */}
     </Flex>
   );
 };

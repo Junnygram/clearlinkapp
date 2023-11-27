@@ -22,7 +22,7 @@ import { IoMdClose } from 'react-icons/io';
 import { IoClose, IoTrash } from 'react-icons/io5';
 // import useActiveList from '@/src/hooks/useActiveList';
 import { format } from 'date-fns';
-import ConfirmModal from './ConformModal';
+import ConfirmModal from './ConfirmModal';
 
 interface ProfileDrawerProps {
   data: Conversation & {

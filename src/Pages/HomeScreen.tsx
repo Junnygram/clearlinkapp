@@ -10,14 +10,13 @@ import Support from '../Components/Support';
 
 const HomeScreen = () => {
   return (
-    <Box>
+    <Box px={{ lg: '1rem' }}>
       <HeroSection />
       <Banner />
       <ImpressionBanner />
       <Content />
       <Support />
       <PriceSection />
-      {/* <Footer /> */}
     </Box>
   );
 };

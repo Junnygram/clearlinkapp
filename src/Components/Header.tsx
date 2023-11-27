@@ -46,9 +46,9 @@ const Header = ({ showSide, setShowSide }: Side) => {
             fontSize="14px"
           >
             <HStack>
-              {headerRoutes.map((x: any) => (
+              {headerRoutes.map((x: any, i: number) => (
                 <>
-                  <Link href={x.href}>
+                  <Link href={x.href} key={i}>
                     <Flex
                       align="center"
                       // color={pathname ? 'green.200' : 'gray.500'}
@@ -56,7 +56,7 @@ const Header = ({ showSide, setShowSide }: Side) => {
                         color: 'black',
                       }}
                     >
-                      <Text key={x.id}>{x.label}</Text> <ChevronDownIcon />{' '}
+                      <Text key={i}>{x.label}</Text> <ChevronDownIcon />{' '}
                     </Flex>
                   </Link>
                 </>

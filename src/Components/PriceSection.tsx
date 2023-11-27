@@ -13,7 +13,7 @@ import React from 'react';
 const PriceSection = () => {
   return (
     <Box my="2rem">
-      <Flex gap={{ base: '1rem', md: '2rem', lg: '3rem' }}>
+      <Flex gap={{ base: '1rem', md: '2rem' }}>
         <Box
           ml={{ base: '1rem', lg: '3rem' }}
           data-aos="fade-up"
@@ -111,7 +111,7 @@ const PriceSection = () => {
           </Box>
         </Box>
         <Box
-          w={{ base: '90%', md: '' }}
+          w={{ base: '90%', md: '120%' }}
           data-aos="fade-down"
           data-aos-delay="400"
         >

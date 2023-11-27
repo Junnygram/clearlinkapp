@@ -16,6 +16,7 @@ import { User } from '@prisma/client';
 import DesktopItem from './DesktopItem';
 import useRoutes from '../hooks/useRoutes';
 import getCurrentUser from '@/lib/context/getCurrentUser';
+import SettingsModal from './SettingsModal';
 
 interface DesktopSidebarProps {
   currentUser: User;
@@ -28,11 +29,11 @@ const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
 
   return (
     <Box display={{ base: 'none', lg: 'unset' }}>
-      {/* <SettingsModal
-          currentUser={currentUser}
-          isOpen={isOpen}
-          onClose={() => setIsOpen(false)}
-        /> */}
+      <SettingsModal
+        currentUser={currentUser}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
       <Flex
         flexDir="column"
         justify="space-between"
@@ -68,9 +69,6 @@ const DesktopSidebar = ({ currentUser }: DesktopSidebarProps) => {
             _hover={{ opacity: 0.75 }}
             onClick={() => setIsOpen(true)}
           >
-            {/* <Avatar
-              src={`${currentUser.imageSrc ? currentUser.imageSrc : ''}`}
-            /> */}
             <Avatar
               src={`${currentUser?.imageSrc}`}
               name={`${currentUser?.firstName} ${currentUser?.lastName}`}
