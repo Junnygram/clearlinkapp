@@ -14,8 +14,8 @@ export default function Home() {
   return (
     <Flex justify="center">
       <Flex justify="center">
-        <Grid position="relative" maxW="1024px">
-          <Box maxW={{ base: 'full', lg: '62em' }}>
+        <Grid position="relative">
+          <Box maxW={{ base: 'full', lg: '1300px' }}>
             <Sidebar showSide={showSide} setShowSide={setShowSide} />
             <Header showSide={showSide} setShowSide={setShowSide} />
             <Box as="main" minH={'90vh'}>

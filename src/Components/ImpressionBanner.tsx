@@ -74,13 +74,13 @@ const ImpressionBanner = () => {
                 </Box>
                 <Text
                   fontWeight="600"
-                  fontSize={{ base: '6px', md: '15px', lg: '22px' }}
+                  fontSize={{ base: '6px', md: '15px', lg: '20px' }}
                 >
                   Crystal-clear HD video
                 </Text>
                 <Text
                   fontWeight="400"
-                  fontSize={{ base: '6px', md: '12px', lg: '24px' }}
+                  fontSize={{ base: '6px', md: '12px', lg: '20px' }}
                 >
                   No more pixelation or blurriness – just stunning, lifelike
                   clarity that brings your team closer in meetings.
@@ -96,13 +96,13 @@ const ImpressionBanner = () => {
                 </Box>
                 <Text
                   fontWeight="600"
-                  fontSize={{ base: '6px', md: '15px', lg: '22px' }}
+                  fontSize={{ base: '6px', md: '15px', lg: '20px' }}
                 >
                   Noise-canceling audio
                 </Text>
                 <Text
                   fontWeight="400"
-                  fontSize={{ base: '6px', md: '12px', lg: '24px' }}
+                  fontSize={{ base: '6px', md: '12px', lg: '20px' }}
                 >
                   Say goodbye to distractions with our advanced audio tech for
                   crisp, interruption-free conversations.
@@ -118,13 +118,13 @@ const ImpressionBanner = () => {
                 </Box>
                 <Text
                   fontWeight="600"
-                  fontSize={{ base: '6px', md: '15px', lg: '22px' }}
+                  fontSize={{ base: '6px', md: '15px', lg: '20px' }}
                 >
                   Scheduling made easy
                 </Text>
                 <Text
                   fontWeight="400"
-                  fontSize={{ base: '6px', md: '12px', lg: '24px' }}
+                  fontSize={{ base: '6px', md: '12px', lg: '20px' }}
                 >
                   Streamline your agenda with ClearLink&apos;s intuitive
                   scheduling. Set up meetings, send invitations, and receive
@@ -141,13 +141,13 @@ const ImpressionBanner = () => {
                 </Box>
                 <Text
                   fontWeight="600"
-                  fontSize={{ base: '6px', md: '15px', lg: '22px' }}
+                  fontSize={{ base: '6px', md: '15px', lg: '20px' }}
                 >
                   Bank-grade security
                 </Text>
                 <Text
                   fontWeight="400"
-                  fontSize={{ base: '6px', md: '12px', lg: '24px' }}
+                  fontSize={{ base: '6px', md: '12px', lg: '20px' }}
                 >
                   Your privacy is our priority with bank-grade security
                   protocols safeguarding your meetings and data from unwanted

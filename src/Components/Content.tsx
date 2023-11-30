@@ -42,7 +42,7 @@ const Content = () => {
                 </Box>
                 <Text
                   fontWeight="600"
-                  fontSize={{ base: '14px', md: '28px', lg: '48px' }}
+                  fontSize={{ base: '14px', md: '28px', lg: '38px' }}
                 >
                   ClearLink has upgraded our remote meetings. High-quality
                   video, screen sharing, and top-notch security make it
