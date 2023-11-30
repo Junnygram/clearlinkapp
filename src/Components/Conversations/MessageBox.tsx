@@ -60,7 +60,7 @@ const MessageBox = ({ data, isLast }: MessageBoxProps) => {
           fontSize="sm"
           textColor="white"
           overflow="hidden"
-          bgColor={isOwn ? 'blue.100' : ''}
+          bgColor={isOwn ? 'blue.600' : ''}
           borderRadius={data.image ? ' ' : '10px'}
           p={data.image ? '0' : '2px 4px'}
           position="relative"

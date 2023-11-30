@@ -1,5 +1,13 @@
 'use client';
-import { Box, Flex, Image, HStack, Text, IconButton } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  Image,
+  HStack,
+  Text,
+  IconButton,
+  VStack,
+} from '@chakra-ui/react';
 
 import React from 'react';
 import {
@@ -38,17 +46,19 @@ const Header = ({ showSide, setShowSide }: Side) => {
             fontSize="14px"
           >
             <HStack>
-              {headerRoutes.map((x) => (
+              {headerRoutes.map((x: any, i: number) => (
                 <>
-                  <Flex
-                    align="center"
-                    // color={pathname?.startsWith(href) ? 'black' : 'gray.500'}
-                    _hover={{
-                      color: 'black',
-                    }}
-                  >
-                    <Text key={x.key}>{x.label}</Text> <ChevronDownIcon />
-                  </Flex>
+                  <Link href={x.href} key={i}>
+                    <Flex
+                      align="center"
+                      // color={pathname ? 'green.200' : 'gray.500'}
+                      _hover={{
+                        color: 'black',
+                      }}
+                    >
+                      <Text key={i}>{x.label}</Text> <ChevronDownIcon />{' '}
+                    </Flex>
+                  </Link>
                 </>
               ))}
             </HStack>

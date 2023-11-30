@@ -11,6 +11,7 @@ import { find } from 'lodash';
 import { Box, Flex } from '@chakra-ui/react';
 import { FullMessageType } from '@/src/types';
 import useConversation from '@/src/hooks/useConversation';
+import { useRouter } from 'next/navigation';
 
 interface BodyProps {
   initialMessages: FullMessageType[];
@@ -18,6 +19,7 @@ interface BodyProps {
 
 const Body = ({ initialMessages = [] }: BodyProps) => {
   const bottomRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
   const [messages, setMessages] = useState(initialMessages);
 
   const { conversationId } = useConversation();
@@ -35,6 +37,7 @@ const Body = ({ initialMessages = [] }: BodyProps) => {
 
     setMessages((current) => {
       if (find(current, { id: message.id })) {
+        // router.refresh();
         return current;
       }
 

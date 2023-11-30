@@ -38,10 +38,9 @@ const ImpressionBanner = () => {
             </Stack>{' '}
           </Box>
           <Box
-            w=""
             position="absolute"
-            right={{ base: '3.8rem', md: '8rem', lg: '15rem' }}
-            top={{ base: '2rem', md: '2.5rem', lg: '4rem' }}
+            right={{ base: '3.8rem', md: '8rem', lg: '15rem', xl: '6rem' }}
+            top={{ base: '2rem', md: '2.5rem', lg: '4rem', xl: '6rem' }}
           >
             {' '}
             <Box>
@@ -157,12 +156,12 @@ const ImpressionBanner = () => {
               </Flex>
             </Grid>
           </HStack>{' '}
-          <Box w="50%">
+          <Box w={{ base: '50%', md: '' }}>
             <Image
               alt="any"
               src="/assets/Rectangle.png"
               boxSize="100%"
-              objectFit="contain"
+              objectFit={{ base: 'contain', md: 'cover' }}
             />
           </Box>
         </Flex>

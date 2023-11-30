@@ -13,7 +13,7 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Conversation, User } from '@prisma/client';
 import useOtherUser from '@/src/hooks/useOtherUser';
-import useActiveList from '@/src/hooks/useActiveList';
+// import useActiveList from '@/src/hooks/useActiveList';
 import ProfileDrawer from './ProfileDrawer';
 
 interface HeaderProps {
@@ -78,8 +78,8 @@ const ChatHeader = ({ conversation }: HeaderProps) => {
             </AvatarGroup>
           ) : (
             <Avatar
-              src={`${otherUser.imageSrc}`}
-              name={`${otherUser.firstName}`}
+              src={`${otherUser?.imageSrc}`}
+              name={`${otherUser?.firstName} ${otherUser?.lastName}`}
             />
           )}
 
@@ -92,16 +92,10 @@ const ChatHeader = ({ conversation }: HeaderProps) => {
             </Text>
           </Box>
         </Box>
-        {/* <IconButton
-          colorScheme="sky"
-          icon={<Icon as={HiEllipsisHorizontal} />}
-          onClick={() => setDrawerOpen(true)}
-          _hover={{ color: 'blue.200' }}
-          transition="color 0.2s"
-          aria-label="icon"
-          boxSize={6}
-        /> */}
-        <HiEllipsisHorizontal size={20} />
+        <HiEllipsisHorizontal
+          size={20}
+          onClick={() => setDrawerOpen((prev: any) => !prev)}
+        />
       </Box>
     </>
   );

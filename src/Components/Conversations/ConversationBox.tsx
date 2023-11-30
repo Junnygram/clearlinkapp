@@ -95,7 +95,10 @@ const ConversationBox = ({ data, selected }: ConversationBoxProps) => {
           ))}
         </AvatarGroup>
       ) : (
-        <Avatar src={`${otherUser.imageSrc}`} name={`${otherUser.firstName}`} />
+        <Avatar
+          src={`${otherUser.imageSrc} `}
+          name={`${otherUser.firstName} ${otherUser.lastName}`}
+        />
       )}
       <Flex flex="1" minW="0" direction="column">
         <Flex justify="space-between" align="center" mb="1">
