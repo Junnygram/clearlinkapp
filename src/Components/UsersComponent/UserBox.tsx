@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { User } from '@prisma/client';
+import LoadingModal from '@/src/Modals/loadingModal';
 // import Avatar from '@/src/sidebar/Avatar';
 
 // import Avatar from "@/app/components/Avatar";
@@ -29,7 +30,7 @@ const UserBox = ({ data }: UserBoxProps) => {
 
   return (
     <>
-      {/* {isLoading && <LoadingModal />} */}
+      {isLoading && <LoadingModal />}
       <Box
         onClick={handleClick}
         w="full"
