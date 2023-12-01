@@ -5,5 +5,14 @@
 # Learn more from ready-to-use templates: https://www.gitpod.io/docs/introduction/getting-started/quickstart
 
 tasks:
-  - init: npm install && npm run build
-    command: npm run start
+  - name: Clearlink
+    before: yarn global add express
+    init: yarn install
+    command: yarn build
+
+# Ports to expose on workspace startup
+ports:
+  - port: 3000
+    onOpen: open-preview
+    name: Clearlink
+    description: Website Preview
