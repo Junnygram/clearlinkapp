@@ -2,11 +2,7 @@
 
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
-
-// import { pusherClient } from "@/app/libs/pusher";
-
 import MessageBox from './MessageBox';
-
 import { find } from 'lodash';
 import { Box, Flex } from '@chakra-ui/react';
 import { FullMessageType } from '@/src/types';
@@ -68,6 +64,7 @@ const Body = ({ initialMessages = [] }: BodyProps) => {
       pusherClient.unbind('messages:new', messageHandler);
       pusherClient.unbind('message:update', updateMessageHandler);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [conversationId]);
 
   return (
