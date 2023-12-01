@@ -20,7 +20,7 @@ COPY tsconfig.json ./
 
 COPY . ./
 
-RUN yarn build
+RUN yarn install
 
 EXPOSE $PORT
 
