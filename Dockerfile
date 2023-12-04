@@ -24,4 +24,4 @@ RUN yarn install
 
 EXPOSE $PORT
 
-CMD ["yarn", "dev"]
+CMD ["yarn", "start"]

@@ -15,14 +15,15 @@ const PriceSection = () => {
     <Box my="2rem">
       <Flex gap={{ base: '1rem', md: '2rem' }}>
         <Box
-          ml={{ base: '1rem', lg: '3rem' }}
+          ml={{ base: '1rem', lg: '2rem' }}
+          w="50%"
           data-aos="fade-up"
           data-aos-delay="400"
         >
           <Text
             pt="1rem"
             fontWeight="600"
-            fontSize={{ base: '14px', md: '40px', lg: '48px' }}
+            fontSize={{ base: '14px', md: '40px', lg: '38px' }}
             lineHeight={{ base: '15px', md: '36px', lg: '58px' }}
           >
             Ready to clear the path to perfect communication?
@@ -91,7 +92,7 @@ const PriceSection = () => {
                 cursor="pointer"
               >
                 {' '}
-                <Text p={{ base: '5px', md: '8px', lg: '10px' }} align="center">
+                <Text p={{ base: '5px', md: '8px' }} align="center">
                   Talk to sales
                 </Text>
               </Box>
@@ -103,18 +104,14 @@ const PriceSection = () => {
                 cursor="pointer"
               >
                 {' '}
-                <Text p={{ base: '5px', lg: '10px' }} align="center">
+                <Text p={{ base: '5px', md: '8px' }} align="center">
                   Start free trial
                 </Text>
               </Box>
             </Flex>
           </Box>
         </Box>
-        <Box
-          w={{ base: '90%', md: '120%' }}
-          data-aos="fade-down"
-          data-aos-delay="400"
-        >
+        <Box w="50%" data-aos="fade-down" data-aos-delay="400" mr="1rem">
           {' '}
           <Image
             src="/assets/price.png"

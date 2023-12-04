@@ -15,6 +15,7 @@ import { Conversation, User } from '@prisma/client';
 import useOtherUser from '@/src/hooks/useOtherUser';
 // import useActiveList from '@/src/hooks/useActiveList';
 import ProfileDrawer from './ProfileDrawer';
+import useActiveList from '@/src/hooks/useActiveList';
 
 interface HeaderProps {
   conversation: Conversation & {
@@ -26,17 +27,15 @@ const ChatHeader = ({ conversation }: HeaderProps) => {
   const otherUser = useOtherUser(conversation);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
-  // const { members } = useActiveList();
-  // const isActive = members.indexOf(otherUser?.email!) !== -1;
+  const { members } = useActiveList();
+  const isActive = members.indexOf(otherUser?.email!) !== -1;
   const statusText = useMemo(() => {
     if (conversation.isGroup) {
       return `${conversation.users.length} members`;
     }
 
-    //   return isActive ? 'Active' : 'Offline';
-    // }, [conversation, isActive]);
-    return 'Active';
-  }, [conversation]);
+    return isActive ? 'Active' : 'Offline';
+  }, [conversation, isActive]);
 
   const groupedHeaderAvatar = conversation.users;
   return (
