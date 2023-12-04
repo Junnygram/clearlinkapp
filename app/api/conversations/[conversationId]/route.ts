@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import prisma from '../../../../lib/prismadb';
 import getCurrentUser from '@/lib/context/getCurrentUser';
+import { pusherServer } from '@/lib/pusher';
 
 // import { pusherServer } from "@/app/libs/pusher";
 
@@ -42,11 +43,15 @@ export async function DELETE(
       },
     });
 
-    // existingConversation.users.forEach((user) => {
-    //   if (user.email) {
-    //     pusherServer.trigger(user.email, 'conversation:remove', existingConversation);
-    //   }
-    // });
+    existingConversation.users.forEach((user) => {
+      if (user.email) {
+        pusherServer.trigger(
+          user.email,
+          'conversation:remove',
+          existingConversation
+        );
+      }
+    });
 
     return NextResponse.json(deletedConversation);
   } catch (error) {
