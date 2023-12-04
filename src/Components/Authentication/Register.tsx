@@ -96,16 +96,18 @@ const RegisterPage = () => {
       .post('/api/register', state)
       .then(() => {
         toast.success('You have successfully created an account');
+        router.push('/login');
         router.refresh();
       })
-      .then(() => {
-        setTimeout(() => {
-          router.push('/login');
-        }, 2500);
-      })
+      // .then(() => {
+      //   setTimeout(() => {
+      //     router.push('/login');
+      //   }, 2500);
+      // })
 
       .catch((error: any) => {
-        // throw new Error(error);
+        console.log(error);
+        toast.error('Kindly check your input');
       })
       .finally(() => {
         setLoading(false);
