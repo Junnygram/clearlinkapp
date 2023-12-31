@@ -234,22 +234,37 @@ const LoginPage = () => {
                     register={register}
                   />
                 </VStack>
-                <Flex
-                  w="100%"
-                  alignItems="flex-end"
-                  justifyContent="flex-start"
-                  my="1rem"
-                >
-                  <Checkbox
-                    alignItems="center"
-                    borderColor="none"
-                    borderRadius="5px"
-                    size="md"
-                    onChange={() => setTerms(!terms)}
+                <HStack justify="space-between">
+                  <Box
+                    display="flex"
+                    // w="100%"
+                    alignItems="flex-end"
+                    justifyContent="flex-start"
+                    my="1rem"
                   >
-                    Remember me
-                  </Checkbox>
-                </Flex>
+                    <Checkbox
+                      alignItems="center"
+                      borderColor="none"
+                      borderRadius="5px"
+                      size="md"
+                      onChange={() => setTerms(!terms)}
+                    >
+                      Remember me
+                    </Checkbox>
+                  </Box>
+                  <Box>
+                    <Link href="/initiatereset">
+                      &nbsp;
+                      <span
+                        style={{
+                          color: '#1570FA',
+                        }}
+                      >
+                        forgot password?
+                      </span>
+                    </Link>
+                  </Box>
+                </HStack>
 
                 <SubmitButton
                   textContent={`${loading ? 'Validating' : 'Sign in'}`}

@@ -22,6 +22,7 @@ import { BsCheckCircle } from 'react-icons/bs';
 import { InitiateResetModel } from '@/src/model/InitiateResetModel';
 import PrimaryInput from '@/src/utils/PrimaryInput';
 import SubmitButton from '@/src/utils/Submit';
+import { ChevronLeftIcon } from '@chakra-ui/icons';
 
 YupPassword(yup);
 
@@ -50,16 +51,38 @@ export const InitiateReset = () => {
     }
   };
 
+  const goBack = () => {
+    window.history.back(); // This will navigate back to the previous page
+  };
   const isAnyFieldEmpty = !email;
 
   return (
-    <Flex
-      border="2px hidden red"
-      w="100%"
-      minH="100vh"
-      justify={{ base: 'none', md: 'space-between' }}
-      align="center"
-    >
+    <Box>
+      <Flex
+        _hover={{
+          backgroundColor: 'transparent',
+          border: '2px solid #1570FA',
+        }}
+        pos="absolute"
+        w="2rem"
+        h="2rem"
+        borderRadius="50%"
+        bgColor="gray.200"
+        justify="center"
+        left="10px"
+        top="1rem"
+        zIndex="4"
+        align="center"
+      >
+        <ChevronLeftIcon
+          textColor="#08165e"
+          fontSize="28px"
+          fontWeight={600}
+          cursor="pointer"
+          onClick={goBack}
+        />
+      </Flex>
+
       <Flex
         w={{ base: '100%', md: '80%', lg: '50%' }}
         pos="relative"
@@ -67,116 +90,72 @@ export const InitiateReset = () => {
         align="center"
         mx="auto"
       >
-        {success ? (
-          <VStack w="90%" h="auto" p="3rem 3rem" boxShadow="none" mx="auto">
-            <Icon as={BsCheckCircle} color="green" fontSize="2rem" />
-            <Heading>Successful!</Heading>
-            <Text textAlign="center">
-              Check your mail for further instructions
-            </Text>
-            <Link
-              href="https://gmail.com"
-              target="_blank"
-              w="full"
-              _hover={{
-                textDecor: 'none',
-              }}
+        <Box w="full" bgColor="white" px="4rem" mt=".5rem" py="1rem">
+          <VStack spacing={0} gap="1.5rem" w="100%" mb="10px">
+            <Image
+              // boxSize="50px"
+              objectFit="cover"
+              alt="logo"
+              src="/assets/logo.png"
+            />
+
+            <Heading
+              fontWeight={700}
+              fontSize="30px"
+              color="black"
+              textTransform="capitalize"
+              textAlign="center"
+              mx="auto"
+              w="80%"
             >
-              <Flex w="full">
-                <Button
-                  w="50%"
-                  mx="auto"
-                  h="3rem"
-                  bgColor="brand.100"
-                  color="white"
+              Reset Password!
+            </Heading>
+            <Text
+              fontSize={['14px', '16px']}
+              display={['block', 'block', 'block']}
+              textAlign="center"
+              fontWeight="600"
+            >
+              Own an account?
+              <Link href="/login">
+                &nbsp;
+                <span
+                  style={{
+                    color: '#1570FA',
+                  }}
                 >
-                  Open Mail
-                </Button>
-              </Flex>
-            </Link>
+                  Sign in here.
+                </span>
+              </Link>
+            </Text>
           </VStack>
-        ) : (
-          <Box w="full" bgColor="white" px="4rem" mt=".5rem" py="1rem">
-            <VStack spacing={0} gap="1.5rem" w="100%" mb="10px">
-              <Stack>
-                <Image
-                  // boxSize="50px"
-                  objectFit="cover"
-                  alt="logo"
-                  src="/assets/logo.png"
-                />
-              </Stack>
-              <Heading
-                fontWeight={700}
-                fontSize="30px"
-                color="black"
-                textTransform="capitalize"
-                textAlign="center"
-                mx="auto"
-                w="80%"
-              >
-                Reset Password!
-              </Heading>
-
-              <Text
-                fontSize={['14px', '16px']}
-                display={['block', 'block', 'block']}
-                textAlign="center"
-                fontWeight="600"
-              >
-                Own an account?
-                <Link href="/login">
-                  &nbsp;
-                  <span
-                    style={{
-                      color: '#1570FA',
-                    }}
-                  >
-                    Sign in here.
-                  </span>
-                </Link>
-              </Text>
+          <form>
+            <VStack mb="1rem" spacing={0} gap="1rem" w="80%" mx="auto">
+              <PrimaryInput<InitiateResetModel>
+                label="Email"
+                name="email"
+                error={errors.email}
+                defaultValue=""
+                register={register}
+                onChange={handleChange}
+              />
+              <SubmitButton
+                textContent="Proceed"
+                isDisabled={isSubmitting || isAnyFieldEmpty}
+              />
             </VStack>
-            <Box
-              w="100%"
-              h={['100%', '100%', '100%']}
-              overflow="auto"
-              py="15px"
-              pr="3px"
-            >
-              <form>
-                <VStack mb="1rem" spacing={0} gap="1rem" w="80%" mx="auto">
-                  <PrimaryInput<InitiateResetModel>
-                    label="Email"
-                    name="email"
-                    error={errors.email}
-                    defaultValue=""
-                    register={register}
-                    onChange={handleChange}
-                  />
-                  <SubmitButton
-                    textContent="Proceed"
-                    isDisabled={isSubmitting || isAnyFieldEmpty}
-                  />
-                </VStack>
-              </form>
-
-              <Text
-                fontSize={['14px', '14px']}
-                display={['block', 'block', 'block']}
-                textAlign="center"
-                mt="1rem"
-                color="#3e3e3e"
-                fontWeight="500"
-              >
-                <Text fontSize="10px">
-                  © {year} ClearLink. All rights reserved.
-                </Text>
-              </Text>
-            </Box>
-          </Box>
-        )}
+          </form>
+          <Text
+            textAlign="center"
+            mt="1rem"
+            color="#3e3e3e"
+            fontWeight="500"
+            fontSize="10px"
+          >
+            © {year} ClearLink. All rights reserved.
+          </Text>
+        </Box>
       </Flex>
-    </Flex>
+    </Box>
   );
 };
