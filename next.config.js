@@ -4,7 +4,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   experimental: {
-    // serverComponentsExternalPackages: ['bcrypt'],
+    serverComponentsExternalPackages: ['@resend/'],
     swcPlugins: [['next-superjson-plugin', {}]],
   },
 

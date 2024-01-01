@@ -1,3 +1,4 @@
+'use client ';
 import * as React from 'react';
 import prisma from '../../lib/prismadb';
 import getCurrentUser from '@/lib/context/getCurrentUser';
